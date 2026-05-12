@@ -45,11 +45,12 @@ function parsePipeline() {
   const f = join(DATA, 'pipeline.md');
   if (!existsSync(f)) return [];
   const pending = [];
-  let inPending = false;
+  let skip = false;
   for (const line of readFileSync(f, 'utf8').split('\n')) {
-    if (line.trim() === '## Pendientes') { inPending = true; continue; }
-    if (line.startsWith('## ')) { inPending = false; continue; }
-    if (!inPending) continue;
+    // Stop collecting once we hit processed/discarded sections
+    if (/^## (Procesadas|Descartadas|Processed|Discarded)/.test(line)) { skip = true; }
+    if (skip) continue;
+    // Collect any unchecked item — works regardless of section position
     const m = line.match(/^- \[ \] (.+)/);
     if (!m) continue;
     const parts = m[1].split('|').map(s => s.trim());
