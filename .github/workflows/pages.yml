@@ -1,18 +1,24 @@
-name: Deploy to GitHub Pages
+name: Daily Scan + Deploy Pages
 
 on:
+  schedule:
+    - cron: '0 3 * * *'   # 9 AM IST (UTC+5:30) = 03:30 UTC — runs daily
   push:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch:       # manual trigger from GitHub UI
 
 permissions:
   contents: write
 
 jobs:
-  generate-and-deploy:
+  scan-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -21,13 +27,24 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Generate static data
+      - name: Run job scan
+        run: node scan.mjs
+
+      - name: Generate static dashboard data
         run: node generate-data.mjs
 
-      - name: Commit generated data
+      - name: Commit and push results
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
-          git add data/jobs.json data/pipeline.json || true
-          git diff --staged --quiet || git commit -m "chore: regenerate static data [skip ci]"
+          git add -f \
+            data/pipeline.md \
+            data/scan-history.tsv \
+            data/jobs.json \
+            data/pipeline.json \
+            data/applications.md \
+            output/ \
+            || true
+          git diff --staged --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "chore: scan $(date -u +%Y-%m-%d) — auto [skip ci]"
           git push
