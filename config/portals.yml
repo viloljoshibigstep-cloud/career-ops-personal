@@ -1,0 +1,623 @@
+# Career-Ops Portal Scanner — Vilol Joshi
+# Regions: EMEA (Germany priority) · MEA (Dubai/Qatar) · SEA (Singapore/Malaysia)
+# Roles: AI PM · Gen AI PM · TPM · Senior PM · ML PM · AI Strategy · AI Program Manager
+
+# ── Title filter ──────────────────────────────────────────────────────────────
+title_filter:
+  positive:
+    # Product roles
+    - "Product Manager"
+    - "Product Owner"
+    - "Technical Product Manager"
+    - "AI Product Manager"
+    - "ML Product Manager"
+    - "Data Product Manager"
+    - "Product Strategist"
+    - "Product Analyst"
+    - "Product Operations"
+    - "Product Marketing"
+    - "TPM"
+    - "PMM"
+    - "GTM Manager"
+    - "Go-to-Market"
+    # AI/strategy roles
+    - "AI Strategy"
+    - "AI Program Manager"
+    - "AI Operations"
+    - "AI Solutions Manager"
+    - "AI Lead"
+    - "Conversational AI"
+    - "Generative AI"
+    - "GenAI"
+    - "AI Manager"
+    # German equivalents
+    - "Produktmanager"
+    - "KI Produktmanager"
+    - "Digitalisierung"
+    - "Transformation"
+    - "Strategie"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Internship"
+    - "Werkstudent"
+    - "Praktikant"
+    - "Entry Level"
+    - "Graduate"
+    - "Trainee"
+    - "iOS"
+    - "Android"
+    - "Frontend Developer"
+    - "Backend Developer"
+    - "Full Stack"
+    - "DevOps"
+    - "QA Engineer"
+    - "Test Engineer"
+    - "Hardware"
+    - "Embedded"
+    - "Firmware"
+    - "FPGA"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+  seniority_boost:
+    - "Senior"
+    - "Lead"
+    - "Principal"
+    - "Head of"
+    - "Director"
+    - "Vice President"
+    - "VP"
+    - "Staff"
+    - "Group"
+
+# ── Search queries ─────────────────────────────────────────────────────────────
+search_queries:
+
+  # ── EMEA — Greenhouse ──────────────────────────────────────────────────────
+  - name: Greenhouse — AI PM EMEA
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Product Manager" OR "Senior Product Manager" Europe OR Germany OR Berlin OR London OR Amsterdam'
+    enabled: true
+
+  - name: Greenhouse — GenAI PM EMEA
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Generative AI" "Product Manager" Europe OR EMEA'
+    enabled: true
+
+  - name: Greenhouse — Technical PM EMEA
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Technical Product Manager" OR "TPM" AI Europe OR EMEA'
+    enabled: true
+
+  # ── EMEA — Ashby ──────────────────────────────────────────────────────────
+  - name: Ashby — AI PM EMEA
+    query: 'site:jobs.ashbyhq.com "AI Product Manager" OR "Senior Product Manager" OR "ML Product Manager" Europe OR EMEA'
+    enabled: true
+
+  - name: Ashby — GenAI PM EMEA
+    query: 'site:jobs.ashbyhq.com "Generative AI" OR "GenAI" "Product Manager" Europe OR Germany OR London'
+    enabled: true
+
+  # ── EMEA — Lever ──────────────────────────────────────────────────────────
+  - name: Lever — AI PM EMEA
+    query: 'site:jobs.lever.co "AI Product Manager" OR "Senior Product Manager" AI Europe OR EMEA OR Germany OR London'
+    enabled: true
+
+  # ── Germany-specific boards ────────────────────────────────────────────────
+  - name: StepStone DE — AI PM
+    query: 'site:stepstone.de "AI Product Manager" OR "KI Produktmanager" OR "Technical Product Manager" Berlin OR München OR Frankfurt OR Hamburg'
+    enabled: true
+
+  - name: XING — AI PM Germany
+    query: 'site:xing.com "AI Product Manager" OR "KI Produktmanager" OR "Technical Product Manager" Deutschland OR Berlin OR München'
+    enabled: true
+
+  - name: Indeed DE — AI PM
+    query: 'site:de.indeed.com "AI Product Manager" OR "Senior Product Manager" AI Berlin OR München OR Frankfurt OR Remote'
+    enabled: true
+
+  # ── MEA — Dubai / Qatar ────────────────────────────────────────────────────
+  - name: Bayt — AI PM Dubai/Qatar
+    query: 'site:bayt.com "Product Manager" OR "AI Product Manager" Dubai OR "Abu Dhabi" OR Qatar OR Doha AI'
+    enabled: true
+
+  - name: GulfTalent — AI PM MEA
+    query: 'site:gulftalent.com "Product Manager" "AI" OR "Digital" Dubai OR UAE OR Qatar OR Doha'
+    enabled: true
+
+  - name: LinkedIn MENA — AI PM
+    query: '"AI Product Manager" OR "Technical Product Manager" OR "Senior Product Manager" AI Dubai OR UAE OR Qatar OR Doha'
+    enabled: true
+
+  - name: Indeed UAE — AI PM
+    query: 'site:ae.indeed.com "Product Manager" "AI" OR "Technology" Dubai OR UAE OR "Abu Dhabi"'
+    enabled: true
+
+  # ── Singapore / Malaysia ───────────────────────────────────────────────────
+  - name: JobStreet SG — AI PM
+    query: 'site:jobstreet.com.sg "AI Product Manager" OR "Senior Product Manager" AI Singapore'
+    enabled: true
+
+  - name: JobStreet MY — AI PM
+    query: 'site:jobstreet.com.my "Product Manager" AI OR "Machine Learning" "Kuala Lumpur" OR Malaysia'
+    enabled: true
+
+  - name: Indeed SG — AI PM
+    query: 'site:sg.indeed.com "AI Product Manager" OR "Technical Product Manager" OR "Senior Product Manager" AI Singapore'
+    enabled: true
+
+  - name: LinkedIn APAC — AI PM Singapore
+    query: '"AI Product Manager" OR "Senior Product Manager" AI OR LLM Singapore EMEA OR APAC'
+    enabled: true
+
+  # ── Global AI PM boards ────────────────────────────────────────────────────
+  - name: Himalayas — AI PM EMEA
+    query: 'site:himalayas.app "AI Product Manager" OR "Senior Product Manager" AI Europe OR EMEA OR Singapore'
+    enabled: true
+
+  - name: ai-jobs.net — AI PM
+    query: 'site:ai-jobs.net "Product Manager" AI OR LLM OR "Generative" Europe OR EMEA OR Singapore OR Dubai'
+    enabled: true
+
+  - name: YC Jobs — AI PM
+    query: 'site:workatastartup.com "AI Product Manager" OR "Product Manager" AI remote OR Europe OR Singapore'
+    enabled: true
+
+  - name: Remotive — AI PM EMEA
+    query: 'site:remotive.com "AI Product Manager" OR "Senior Product Manager" AI Europe OR EMEA'
+    enabled: true
+
+# ── Tracked companies ─────────────────────────────────────────────────────────
+tracked_companies:
+
+  # ════════════════════════════════════════════════════════════════
+  # DACH — Germany, Austria, Switzerland (Highest priority)
+  # ════════════════════════════════════════════════════════════════
+
+  - name: Aleph Alpha
+    careers_url: https://jobs.ashbyhq.com/AlephAlpha
+    notes: "Heidelberg DE. Sovereign European LLM — strong AI PM demand."
+    enabled: true
+
+  - name: DeepL
+    careers_url: https://jobs.ashbyhq.com/DeepL
+    notes: "Cologne DE. Language AI. Hiring AI PMs."
+    enabled: true
+
+  - name: Celonis
+    careers_url: https://job-boards.greenhouse.io/celonis
+    api: https://boards-api.greenhouse.io/v1/boards/celonis/jobs
+    notes: "Munich DE. Process intelligence + Applied AI. PM roles."
+    enabled: true
+
+  - name: n8n
+    careers_url: https://jobs.ashbyhq.com/n8n
+    notes: "Berlin DE. Workflow automation platform. PM + AI roles."
+    enabled: true
+
+  - name: Langfuse
+    careers_url: https://langfuse.com/careers
+    scan_method: websearch
+    scan_query: '"langfuse" careers "product manager" OR "product"'
+    notes: "Berlin DE. LLMOps / AI observability. AI PM roles."
+    enabled: true
+
+  - name: N26
+    careers_url: https://job-boards.greenhouse.io/n26
+    api: https://boards-api.greenhouse.io/v1/boards/n26/jobs
+    notes: "Berlin DE. Neobank fintech. ML/Product roles."
+    enabled: true
+
+  - name: Trade Republic
+    careers_url: https://job-boards.greenhouse.io/traderepublicbank
+    api: https://boards-api.greenhouse.io/v1/boards/traderepublicbank/jobs
+    notes: "Berlin DE. Neobroker fintech. Product & data."
+    enabled: true
+
+  - name: SumUp
+    careers_url: https://job-boards.greenhouse.io/sumup
+    api: https://boards-api.greenhouse.io/v1/boards/sumup/jobs
+    notes: "Berlin DE + London. Payments fintech. EU hiring."
+    enabled: true
+
+  - name: Qonto
+    careers_url: https://jobs.lever.co/qonto
+    notes: "Paris/Berlin/Barcelona/Milan. SMB neobank. AI PM roles."
+    enabled: true
+
+  - name: HelloFresh
+    careers_url: https://job-boards.greenhouse.io/hellofresh
+    api: https://boards-api.greenhouse.io/v1/boards/hellofresh/jobs
+    notes: "Berlin DE. Large data/ML org. Product roles."
+    enabled: true
+
+  - name: GetYourGuide
+    careers_url: https://job-boards.greenhouse.io/getyourguide
+    api: https://boards-api.greenhouse.io/v1/boards/getyourguide/jobs
+    notes: "Berlin DE. Travel marketplace. ML Platform PM."
+    enabled: true
+
+  - name: Contentful
+    careers_url: https://job-boards.greenhouse.io/contentful
+    api: https://boards-api.greenhouse.io/v1/boards/contentful/jobs
+    notes: "Berlin DE / Denver. Headless CMS, AI content workflows."
+    enabled: true
+
+  - name: Personio
+    careers_url: https://jobs.ashbyhq.com/personio
+    notes: "Munich DE. HR SaaS unicorn. PM roles."
+    enabled: true
+
+  - name: Scalable Capital
+    careers_url: https://jobs.lever.co/scalablecapital
+    notes: "Munich DE. Fintech investment platform. AI/data PM."
+    enabled: true
+
+  - name: Cognigy
+    careers_url: https://careers.cognigy.com
+    scan_method: websearch
+    scan_query: '"cognigy" careers "product manager" OR "AI"'
+    notes: "Dusseldorf DE. Conversational AI enterprise platform."
+    enabled: true
+
+  - name: Parloa
+    careers_url: https://job-boards.eu.greenhouse.io/parloa
+    api: https://boards-api.greenhouse.io/v1/boards/parloa/jobs
+    notes: "Berlin DE. Voice AI for enterprise — strong AI PM demand."
+    enabled: true
+
+  - name: Helsing
+    careers_url: https://job-boards.greenhouse.io/helsing
+    api: https://boards-api.greenhouse.io/v1/boards/helsing/jobs
+    notes: "Munich/Berlin/London. Defence AI unicorn. PM roles."
+    enabled: true
+
+  - name: Lakera
+    careers_url: https://jobs.ashbyhq.com/lakera.ai
+    notes: "Zurich CH. AI security & guardrails."
+    enabled: true
+
+  - name: Scandit
+    careers_url: https://job-boards.greenhouse.io/scandit
+    api: https://boards-api.greenhouse.io/v1/boards/scandit/jobs
+    notes: "Zurich CH. Computer vision / smart data capture."
+    enabled: true
+
+  - name: Forto
+    careers_url: https://jobs.lever.co/forto
+    notes: "Berlin DE. Digital freight, product & data PM roles."
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════════
+  # UK / Ireland (EMEA)
+  # ════════════════════════════════════════════════════════════════
+
+  - name: PolyAI
+    careers_url: https://job-boards.eu.greenhouse.io/polyai
+    api: https://boards-api.greenhouse.io/v1/boards/polyai/jobs
+    notes: "London UK. Voice AI for enterprise contact centers."
+    enabled: true
+
+  - name: Synthesia
+    careers_url: https://jobs.ashbyhq.com/synthesia
+    notes: "London UK. AI video generation. $4B valuation. AI PM."
+    enabled: true
+
+  - name: Stability AI
+    careers_url: https://job-boards.greenhouse.io/stabilityai
+    api: https://boards-api.greenhouse.io/v1/boards/stabilityai/jobs
+    notes: "London UK. Generative AI image/video research."
+    enabled: true
+
+  - name: Wayve
+    careers_url: https://job-boards.greenhouse.io/wayve
+    api: https://boards-api.greenhouse.io/v1/boards/wayve/jobs
+    notes: "London UK. Embodied AI for self-driving. PM roles."
+    enabled: true
+
+  - name: Intercom
+    careers_url: https://job-boards.greenhouse.io/intercom
+    api: https://boards-api.greenhouse.io/v1/boards/intercom/jobs
+    notes: "Dublin. Fin AI agent. AI PM roles."
+    enabled: true
+
+  - name: Faculty
+    careers_url: https://jobs.ashbyhq.com/faculty
+    notes: "London UK. Applied AI consultancy. 80+ roles."
+    enabled: true
+
+  - name: Isomorphic Labs
+    careers_url: https://job-boards.greenhouse.io/isomorphiclabs
+    api: https://boards-api.greenhouse.io/v1/boards/isomorphiclabs/jobs
+    notes: "London UK. DeepMind spin-out drug discovery AI."
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════════
+  # France / Benelux / Nordics
+  # ════════════════════════════════════════════════════════════════
+
+  - name: Mistral AI
+    careers_url: https://jobs.lever.co/mistral
+    notes: "Paris FR. European frontier LLM. AI PM hiring."
+    enabled: true
+
+  - name: Hugging Face
+    careers_url: https://apply.workable.com/huggingface/
+    scan_method: websearch
+    scan_query: 'site:apply.workable.com/huggingface "product manager" OR "PM"'
+    notes: "Paris FR. ML hub & open-source models."
+    enabled: true
+
+  - name: Photoroom
+    careers_url: https://jobs.ashbyhq.com/photoroom
+    notes: "Paris FR. AI photo editor. AI PM roles."
+    enabled: true
+
+  - name: Pigment
+    careers_url: https://jobs.lever.co/pigment
+    notes: "Paris FR / London. AI-powered FP&A. Product roles."
+    enabled: true
+
+  - name: Booking.com
+    careers_url: https://jobs.booking.com
+    scan_method: websearch
+    scan_query: 'site:jobs.booking.com "AI Product Manager" OR "Senior Product Manager" OR "ML Product"'
+    notes: "Amsterdam NL. Large AI/ML product org."
+    enabled: true
+
+  - name: Adyen
+    careers_url: https://careers.adyen.com
+    scan_method: websearch
+    scan_query: '"adyen" careers "product manager" AI OR "machine learning" Amsterdam'
+    notes: "Amsterdam NL. Global payments fintech. Strong PM culture."
+    enabled: true
+
+  - name: Klarna
+    careers_url: https://jobs.lever.co/klarna
+    notes: "Stockholm SE. BNPL fintech. AI PM roles."
+    enabled: true
+
+  - name: Spotify
+    careers_url: https://jobs.lever.co/spotify
+    notes: "Stockholm SE / London / NYC. Large ML/personalization org."
+    enabled: true
+
+  - name: Lovable
+    careers_url: https://jobs.ashbyhq.com/lovable
+    notes: "Stockholm SE. AI app builder. PM roles."
+    enabled: true
+
+  - name: Vinted
+    careers_url: https://jobs.lever.co/vinted
+    notes: "Vilnius LT / Berlin. C2C marketplace. ML product."
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════════
+  # Global AI Labs (with EMEA presence)
+  # ════════════════════════════════════════════════════════════════
+
+  - name: Anthropic
+    careers_url: https://job-boards.greenhouse.io/anthropic
+    api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+    notes: "Global. AI safety + products. AI PM hiring."
+    enabled: true
+
+  - name: Cohere
+    careers_url: https://jobs.ashbyhq.com/cohere
+    notes: "Global remote. Enterprise LLM. AI PM roles."
+    enabled: true
+
+  - name: ElevenLabs
+    careers_url: https://jobs.ashbyhq.com/elevenlabs
+    notes: "Global. Voice AI TTS leader. Product roles."
+    enabled: true
+
+  - name: Glean
+    careers_url: https://job-boards.greenhouse.io/gleanwork
+    api: https://boards-api.greenhouse.io/v1/boards/gleanwork/jobs
+    notes: "Global. Enterprise AI search. PM roles."
+    enabled: true
+
+  - name: Perplexity
+    careers_url: https://jobs.ashbyhq.com/perplexity
+    notes: "Global. AI search. PM roles."
+    enabled: true
+
+  - name: Weights & Biases
+    careers_url: https://jobs.lever.co/wandb
+    notes: "Global remote. MLOps platform. PM roles."
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════════
+  # MEA — Dubai / UAE / Qatar
+  # ════════════════════════════════════════════════════════════════
+
+  - name: Careem
+    careers_url: https://careers.careem.com
+    scan_method: websearch
+    scan_query: 'site:careers.careem.com "product manager" OR "AI" Dubai OR UAE'
+    notes: "Dubai UAE. Uber-owned super app. AI PM roles in MENA."
+    enabled: true
+
+  - name: Talabat
+    careers_url: https://jobs.lever.co/talabat
+    notes: "Dubai UAE. Food delivery. Product roles."
+    enabled: true
+
+  - name: Kitopi
+    careers_url: https://jobs.lever.co/kitopi
+    notes: "Dubai UAE. Cloud kitchen tech. Product roles."
+    enabled: true
+
+  - name: Majid Al Futtaim
+    careers_url: https://careers.majidalfuttaim.com
+    scan_method: websearch
+    scan_query: '"Majid Al Futtaim" careers "product manager" OR "digital" OR "AI" Dubai'
+    notes: "Dubai UAE. Retail/entertainment conglomerate. Digital transformation PM."
+    enabled: true
+
+  - name: Mashreq Bank
+    careers_url: https://www.mashreq.com/en/uae/help-centre/careers/
+    scan_method: websearch
+    scan_query: '"Mashreq" OR "mashreqbank" careers "product manager" OR "AI" OR "digital" Dubai'
+    notes: "Dubai UAE. Leading digital bank. AI/fintech PM roles."
+    enabled: true
+
+  - name: Emirates NBD
+    careers_url: https://emiratesnbd.com/en/about-us/careers
+    scan_method: websearch
+    scan_query: '"Emirates NBD" careers "product manager" OR "digital" OR "AI" Dubai'
+    notes: "Dubai UAE. Largest bank UAE. Digital product transformation."
+    enabled: true
+
+  - name: ADNOC Digital
+    careers_url: https://adnoc.ae/en/careers
+    scan_method: websearch
+    scan_query: '"ADNOC" OR "ADNOC Digital" careers "product manager" OR "AI" "Abu Dhabi" OR UAE'
+    notes: "Abu Dhabi UAE. Energy giant digital arm. AI platform PM."
+    enabled: true
+
+  - name: Property Finder
+    careers_url: https://jobs.lever.co/propertyfinder
+    notes: "Dubai UAE. Proptech marketplace. Product & AI roles."
+    enabled: true
+
+  - name: Dubizzle
+    careers_url: https://jobs.lever.co/dubizzle
+    notes: "Dubai UAE. OLX Middle East. Product manager roles."
+    enabled: true
+
+  - name: Noon
+    careers_url: https://careers.noon.com
+    scan_method: websearch
+    scan_query: '"noon.com" OR "noon ecommerce" careers "product manager" OR "AI" Dubai OR UAE'
+    notes: "Dubai UAE. Amazon of MENA. AI/product roles."
+    enabled: true
+
+  - name: Tabby
+    careers_url: https://jobs.lever.co/tabby
+    notes: "Dubai UAE. BNPL fintech. PM roles."
+    enabled: true
+
+  - name: Tamara
+    careers_url: https://jobs.ashbyhq.com/tamara
+    notes: "Riyadh SA / Dubai UAE. BNPL fintech. PM roles."
+    enabled: true
+
+  - name: QNB (Qatar National Bank)
+    careers_url: https://qnb.com/sites/qnb/qnbglobal/page/en/encareers.html
+    scan_method: websearch
+    scan_query: '"QNB" OR "Qatar National Bank" careers "product manager" OR "digital" OR "AI" Qatar OR Doha'
+    notes: "Doha Qatar. Largest bank MENA. Digital product PM."
+    enabled: true
+
+  - name: Ooredoo
+    careers_url: https://careers.ooredoo.com
+    scan_method: websearch
+    scan_query: '"Ooredoo" careers "product manager" OR "digital" OR "AI" Qatar OR Doha'
+    notes: "Doha Qatar. Telco. Digital transformation PM roles."
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════════
+  # Singapore
+  # ════════════════════════════════════════════════════════════════
+
+  - name: Grab
+    careers_url: https://grab.careers
+    scan_method: websearch
+    scan_query: 'site:grab.careers "product manager" OR "AI product" Singapore'
+    notes: "Singapore. Southeast Asia super app. Strong AI PM demand."
+    enabled: true
+
+  - name: Sea Limited (Shopee/SeaMoney)
+    careers_url: https://career.seagroup.com
+    scan_method: websearch
+    scan_query: '"Sea Limited" OR "Shopee" OR "SeaMoney" careers "product manager" AI OR "machine learning" Singapore'
+    notes: "Singapore. SEA tech giant. AI product roles."
+    enabled: true
+
+  - name: DBS Bank
+    careers_url: https://jobs.dbs.com
+    scan_method: websearch
+    scan_query: 'site:jobs.dbs.com "product manager" OR "AI" OR "data" Singapore'
+    notes: "Singapore. Best digital bank in world. Strong AI PM culture."
+    enabled: true
+
+  - name: OCBC Bank
+    careers_url: https://careers.ocbc.com
+    scan_method: websearch
+    scan_query: '"OCBC" careers "product manager" OR "AI" OR "digital" Singapore'
+    notes: "Singapore. Major bank. AI/digital product roles."
+    enabled: true
+
+  - name: Gojek
+    careers_url: https://jobs.lever.co/gojek
+    notes: "Singapore / Jakarta. SEA super app. AI PM roles."
+    enabled: true
+
+  - name: Lazada
+    careers_url: https://jobs.lever.co/lazada
+    notes: "Singapore. Alibaba-owned ecommerce. Product roles."
+    enabled: true
+
+  - name: Nium
+    careers_url: https://jobs.lever.co/nium
+    notes: "Singapore. Global fintech payments. Product roles."
+    enabled: true
+
+  - name: Credolab
+    careers_url: https://credolab.com/careers
+    scan_method: websearch
+    scan_query: '"credolab" careers "product manager" OR "AI" Singapore'
+    notes: "Singapore. AI credit scoring fintech. AI PM roles."
+    enabled: true
+
+  - name: Dataiku
+    careers_url: https://jobs.lever.co/dataiku
+    notes: "Paris/NYC/Singapore. AI/ML platform. AI PM hiring."
+    enabled: true
+
+  # ════════════════════════════════════════════════════════════════
+  # Malaysia
+  # ════════════════════════════════════════════════════════════════
+
+  - name: Maybank
+    careers_url: https://careers.maybank.com
+    scan_method: websearch
+    scan_query: '"Maybank" careers "product manager" OR "digital" OR "AI" "Kuala Lumpur" OR Malaysia'
+    notes: "Kuala Lumpur MY. Largest Malaysian bank. Digital/AI PM."
+    enabled: true
+
+  - name: CIMB
+    careers_url: https://careers.cimb.com
+    scan_method: websearch
+    scan_query: '"CIMB" careers "product manager" OR "digital" OR "AI" Malaysia'
+    notes: "Kuala Lumpur MY. Major bank. Digital transformation PM."
+    enabled: true
+
+  - name: AirAsia (MOVE)
+    careers_url: https://jobs.lever.co/airasia
+    notes: "Kuala Lumpur MY. Aviation + super app (MOVE). AI PM roles."
+    enabled: true
+
+  - name: Axiata
+    careers_url: https://careers.axiata.com
+    scan_method: websearch
+    scan_query: '"Axiata" careers "product manager" OR "digital" OR "AI" Malaysia'
+    notes: "Kuala Lumpur MY. Telco group. Digital/AI platform PM."
+    enabled: true
+
+  - name: Petronas Digital
+    careers_url: https://careers.petronas.com
+    scan_method: websearch
+    scan_query: '"Petronas Digital" OR "PETRONAS" careers "product manager" OR "AI" OR "digital" Malaysia'
+    notes: "Kuala Lumpur MY. Energy tech. AI transformation PM."
+    enabled: true
+
+  - name: TNG Digital (Touch 'n Go)
+    careers_url: https://jobs.lever.co/tngdigital
+    notes: "Kuala Lumpur MY. Fintech / e-wallet. AI PM roles."
+    enabled: true
+
+  - name: Funding Societies
+    careers_url: https://jobs.lever.co/fundingsocieties
+    notes: "Singapore/KL. SME fintech lending. AI PM roles."
+    enabled: true

@@ -1,0 +1,168 @@
+candidate:
+  full_name: "Vilol Joshi"
+  email: "viloljoshi10@gmail.com"
+  phone_eu: "+37125670263"      # Used for DE/EMEA CVs (cv-template-de.html)
+  phone_in: "+917410152053"     # Used for MEA/SEA CVs (cv-template-dx.html)
+  photo_path: ""                # Set this to your photo file path, e.g. "/Users/bigstepvilol/Documents/photo.jpg"
+  location: "Mumbai, India · Open to Relocation"
+  linkedin_url: "https://www.linkedin.com/in/viloljoshi"
+  linkedin_display: "linkedin.com/in/viloljoshi"
+  portfolio_url: ""       # Add your portfolio URL here when ready
+  github: ""
+  xing: ""
+
+target_roles:
+  primary:
+    - "AI Product Manager"
+    - "Generative AI Product Manager"
+    - "Technical Product Manager"
+    - "Senior Product Manager"
+    - "ML Product Manager"
+    - "Conversational AI Product Manager"
+    - "AI Program Manager"
+    - "AI Strategy Lead"
+    - "AI Operations Manager"
+    - "AI Solutions Manager"
+    - "Product Owner"
+    - "Product Operations Manager"
+    - "Product Analyst"
+    - "Product Strategist"
+    - "Data Product Manager"
+  archetypes:
+    - name: "AI Product Manager"
+      level: "Senior/Lead"
+      fit: "primary"
+    - name: "Generative AI Product Manager"
+      level: "Senior/Lead"
+      fit: "primary"
+    - name: "Technical Product Manager"
+      level: "Senior"
+      fit: "primary"
+    - name: "ML Product Manager"
+      level: "Senior"
+      fit: "primary"
+    - name: "AI Strategy Lead"
+      level: "Senior/Principal"
+      fit: "primary"
+    - name: "Product Manager"
+      level: "Senior"
+      fit: "secondary"
+    - name: "AI Program Manager"
+      level: "Senior"
+      fit: "secondary"
+    - name: "Product Owner"
+      level: "Senior"
+      fit: "adjacent"
+    - name: "Product Marketing Manager"
+      level: "Senior"
+      fit: "adjacent"
+    - name: "Go-to-Market Manager"
+      level: "Senior"
+      fit: "adjacent"
+
+narrative:
+  headline: "Technical AI Product Manager | LLM Applications | Agentic Systems | Fintech | 5+ Years"
+  exit_story: >
+    Built AI-native products 0→1 in fintech compliance (KYC/AML automation at scale),
+    martech (54M+ AI generations, 9% revenue uplift), and enterprise workflow transformation.
+    Bridging deep technical fluency in LLMs + agentic systems with strong business impact.
+    Now targeting AI PM leadership roles at global tech companies in EMEA, MEA, and Southeast Asia.
+  superpowers:
+    - "LLM Application Design & Agentic Workflow Architecture"
+    - "0→1 AI product development in compliance-heavy environments"
+    - "Cross-functional leadership bridging ML engineering and business stakeholders"
+    - "Human-in-the-loop system design and AI evaluation frameworks"
+    - "Enterprise AI platform strategy and roadmapping"
+    - "AI-native product experiences and automation-first mindset"
+  proof_points:
+    - name: "Nimbus Platform Modernization (Solytics Partners)"
+      hero_metric: "35% reduction in manual compliance review effort; led $15M enterprise sales pipeline demos"
+    - name: "Sing it with Milka AI Campaign (Ogilvy)"
+      hero_metric: "54M+ unique AI music generations; 9% global revenue uplift for brand"
+    - name: "KYC/AML Document Automation (Schbang)"
+      hero_metric: "70% reduction in manual operations; 50K+ documents/month automated"
+    - name: "Lead Enrichment Agentic Workflow"
+      hero_metric: "70% faster lead closures; 40-80K leads at scale with human-in-the-loop review"
+
+compensation:
+  target_range: "EUR 70K–120K / AED 180K–320K / SGD 90K–150K / MYR 180K–300K"
+  currency: "EUR/AED/SGD/MYR"
+  minimum: "EUR 65K (or regional equivalent)"
+  location_flexibility: "Fully open to relocation — Germany, Netherlands, UK, UAE, Qatar, Singapore, Malaysia"
+
+location:
+  country: "India"
+  city: "Mumbai"
+  timezone: "IST (UTC+5:30)"
+  visa_status: "Requires sponsorship (EU Blue Card eligible)"
+  target_locations:
+    - region: "EMEA"
+      priority: 1
+      cities: ["Berlin", "Munich", "Frankfurt", "Amsterdam", "London", "Paris", "Dublin"]
+      notes: "Germany preferred for EU. German B1 level."
+    - region: "MEA"
+      priority: 2
+      cities: ["Dubai", "Abu Dhabi", "Doha", "Riyadh"]
+      notes: "Strong fintech & AI ecosystem. Tax-free compensation."
+    - region: "SEA"
+      priority: 3
+      cities: ["Singapore", "Kuala Lumpur", "Petaling Jaya"]
+      notes: "APAC tech hub, strong AI product market."
+
+job_search:
+  min_score: 7
+  regions:
+    - "EMEA"
+    - "MEA"
+    - "SEA"
+  cv_template:
+    germany: "templates/cv-template-de.html"
+    emea_other: "templates/cv-template.html"
+    mea: "templates/cv-template.html"
+    sea: "templates/cv-template.html"
+  jd_keywords:
+    product_strategy:
+      - "product strategy"
+      - "product roadmap"
+      - "product vision"
+      - "product lifecycle"
+      - "product-led growth"
+      - "0→1"
+      - "go-to-market"
+    ai_ml:
+      - "AI"
+      - "LLM"
+      - "machine learning"
+      - "generative AI"
+      - "agentic"
+      - "agentic workflows"
+      - "human-in-the-loop"
+      - "AI-first"
+      - "AI-native"
+      - "conversational AI"
+      - "AI evaluation"
+      - "fine-tuning"
+      - "RAG"
+      - "NLP"
+    cross_functional:
+      - "cross-functional"
+      - "stakeholder"
+      - "engineering"
+      - "data science"
+    execution:
+      - "backlog"
+      - "sprint"
+      - "agile"
+      - "scrum"
+      - "OKR"
+      - "KPI"
+    modern_ai_language:
+      - "AI-first"
+      - "agentic workflows"
+      - "human-in-the-loop"
+      - "0→1 product"
+      - "rapid experimentation"
+      - "AI-native workflows"
+      - "automation-first"
+      - "builder mentality"
+      - "product-led growth"

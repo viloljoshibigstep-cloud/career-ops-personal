@@ -14,7 +14,10 @@
     "update": "node update-system.mjs apply",
     "rollback": "node update-system.mjs rollback",
     "liveness": "node check-liveness.mjs",
-    "scan": "node scan.mjs"
+    "scan": "node scan.mjs",
+    "dashboard": "cd web && npm start",
+    "dashboard:dev": "cd web && npm run dev",
+    "setup:dashboard": "cd web && npm install"
   },
   "keywords": [
     "ai",

@@ -1,179 +1,217 @@
-# Modo: pdf — Generación de PDF ATS-Optimizado
+# Mode: pdf — Tailored CV Generation
 
-## Pipeline completo
+## Reference designs
+Visual reference PDFs (do not modify these — use only as design reference):
+- `templates/ref-cv-de.pdf` — CV_DE layout (Germany / EMEA-DE)
+- `templates/ref-cv-dx.pdf` — CV_DX layout (all other regions)
 
-1. Lee `cv.md` como fuentes de verdad
-2. Pide al usuario el JD si no está en contexto (texto o URL)
-3. Extrae 15-20 keywords del JD
-4. Detecta idioma del JD → idioma del CV (EN default)
-5. Detecta ubicación empresa → formato papel:
-   - US/Canada → `letter`
-   - Resto del mundo → `a4`
-6. Detecta arquetipo del rol → adapta framing
-7. Reescribe Professional Summary inyectando keywords del JD + exit narrative bridge ("Built and sold a business. Now applying systems thinking to [domain del JD].")
-8. Selecciona top 3-4 proyectos más relevantes para la oferta
-9. Reordena bullets de experiencia por relevancia al JD
-10. Construye competency grid desde requisitos del JD (6-8 keyword phrases)
-11. Inyecta keywords naturalmente en logros existentes (NUNCA inventa)
-12. Genera HTML completo desde template + contenido personalizado
-13. Lee `name` de `config/profile.yml` → normaliza a kebab-case lowercase (e.g. "John Doe" → "john-doe") → `{candidate}`
-14. Escribe HTML a `/tmp/cv-{candidate}-{company}.html`
-15. Ejecuta: `node generate-pdf.mjs /tmp/cv-{candidate}-{company}.html output/cv-{candidate}-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
-15. Reporta: ruta del PDF, nº páginas, % cobertura de keywords
+## ━━ ABSOLUTE RULES — NO EXCEPTIONS ━━
 
-## Reglas ATS (parseo limpio)
+1. **ZERO hallucination.** Every bullet, metric, date, company, skill must exist verbatim or be a direct reformulation of content already in `cv.md`. If a JD asks for a skill Vilol does not have, do NOT add it. Do NOT invent new metrics, projects, or responsibilities.
+2. **Reformulation is allowed; fabrication is not.** You may reframe existing experience using JD vocabulary (e.g. "RAG pipelines" when cv.md says "retrieval workflows"). You may NOT claim experiences that do not exist.
+3. **Preserve all real metrics exactly.** These numbers are non-negotiable and must never be altered:
+   - 45% (compliance review reduction — Solytics)
+   - €15M (enterprise sales pipeline — Solytics)
+   - 65% (UDF adoption increase — Solytics)
+   - 25% (API turnaround reduction — Solytics)
+   - 54M+ (AI music creations — Ogilvy)
+   - 9% (revenue uplift — Ogilvy)
+   - 35% (reporting effort reduction — Ogilvy)
+   - 70% (manual ops reduction — Schbang)
+   - 50K+ (KYC/AML documents/month — Schbang)
+   - +18% / 12% (conversion / churn — Schbang)
+   - 34% (TTM reduction — Schbang)
+   - 40+ hours/month (SEB automation)
+   - 40–80K leads / 70% faster closures (Lead Enrichment project)
+   - +60% / +25% (insurance app KPIs)
+4. **No new sections.** Do not add skills, tools, or sections not in cv.md.
+5. **Dates are fixed.** Do not change any employment dates.
 
-- Layout single-column (sin sidebars, sin columnas paralelas)
-- Headers estándar: "Professional Summary", "Work Experience", "Education", "Skills", "Certifications", "Projects"
-- Sin texto en imágenes/SVGs
-- Sin info crítica en headers/footers del PDF (ATS los ignora)
-- UTF-8, texto seleccionable (no rasterizado)
-- Sin tablas anidadas
-- Keywords del JD distribuidas: Summary (top 5), primer bullet de cada rol, Skills section
+## Template selection
 
-## Diseño del PDF
+| Job region | Template to use |
+|---|---|
+| EMEA-DE (Germany) | `templates/cv-template-de.html` |
+| All other regions (EMEA-UK, EMEA-NL, EMEA-FR, MEA-AE, MEA-QA, SEA-SG, SEA-MY) | `templates/cv-template-dx.html` |
 
-- **Fonts**: Space Grotesk (headings, 600-700) + DM Sans (body, 400-500)
-- **Fonts self-hosted**: `fonts/`
-- **Header**: nombre en Space Grotesk 24px bold + línea gradiente `linear-gradient(to right, hsl(187,74%,32%), hsl(270,70%,45%))` 2px + fila de contacto
-- **Section headers**: Space Grotesk 13px, uppercase, letter-spacing 0.05em, color cyan primary
-- **Body**: DM Sans 11px, line-height 1.5
-- **Company names**: color accent purple `hsl(270,70%,45%)`
-- **Márgenes**: 0.6in
-- **Background**: blanco puro
+## Full pipeline
 
-## Orden de secciones (optimizado "6-second recruiter scan")
+1. Read `cv.md` — this is the single source of truth
+2. Get the JD (from context or URL)
+3. Extract 15–20 keywords from the JD
+4. Detect job region → select template (see table above)
+5. Set `{{PAGE_WIDTH}}` = `210mm` (A4) for all regions
+6. Set `{{LANG}}` = `en` (default); `de` only if JD is entirely in German
+7. Build photo HTML (see Photo section below)
+8. Tailor content (see Tailoring section below)
+9. Render HTML from the selected template, replacing all `{{PLACEHOLDERS}}`
+10. Write HTML to `/tmp/cv-vilol-joshi-{company-slug}-{YYYY-MM-DD}.html`
+11. Execute: `node generate-pdf.mjs /tmp/cv-vilol-joshi-{company-slug}-{YYYY-MM-DD}.html output/cv-vilol-joshi-{company-slug}-{YYYY-MM-DD}.pdf --format=a4`
+12. Report: output path, page count, keyword coverage %
 
-1. Header (nombre grande, gradiente, contacto, link portfolio)
-2. Professional Summary (3-4 líneas, keyword-dense)
-3. Core Competencies (6-8 keyword phrases en flex-grid)
-4. Work Experience (cronológico inverso)
-5. Projects (top 3-4 más relevantes)
-6. Education & Certifications
-7. Skills (idiomas + técnicos)
+## Photo handling
 
-## Estrategia de keyword injection (ético, basado en verdad)
+Check `config/profile.yml` for `photo_path`. If the file exists at that path:
+```html
+<img src="{photo_path}" class="header-photo" alt="">
+```
+If `photo_path` is not set or file does not exist:
+```html
+<div class="header-photo-placeholder"></div>
+```
 
-Ejemplos de reformulación legítima:
-- JD dice "RAG pipelines" y CV dice "LLM workflows with retrieval" → cambiar a "RAG pipeline design and LLM orchestration workflows"
-- JD dice "MLOps" y CV dice "observability, evals, error handling" → cambiar a "MLOps and observability: evals, error handling, cost monitoring"
-- JD dice "stakeholder management" y CV dice "collaborated with team" → cambiar a "stakeholder management across engineering, operations, and business"
+## Tailoring rules (what is allowed)
 
-**NUNCA añadir skills que el candidato no tiene. Solo reformular experiencia real con el vocabulario exacto del JD.**
+### Professional Summary (CV_DX only — `{{SUMMARY_TEXT}}`)
+- Rewrite 3–4 sentences using JD keywords, referencing real experience from cv.md
+- Always include at least 2 real metrics
+- Mirror JD language (e.g. "AI-first", "agentic workflows", "human-in-the-loop")
+- End with a location/context sentence (e.g. "Seeking AI PM roles in [region]'s growing tech ecosystem")
+- **Never claim experiences that don't exist in cv.md**
 
-## Template HTML
+### Core Competencies / Key Strengths
+- Select the 4–6 most relevant from cv.md's competency list
+- Rewrite the description paragraph to front-load JD vocabulary
+- **Keep all real metrics intact — only reframe the surrounding text**
 
-Usar el template en `cv-template.html`. Reemplazar los placeholders `{{...}}` con contenido personalizado:
+### Experience bullets
+- Reorder bullets within each job to put the most JD-relevant first
+- May reframe using JD vocabulary (e.g. "product roadmapping" when cv.md says "product planning")
+- **Never add bullets, metrics, or responsibilities not in cv.md**
 
-| Placeholder | Contenido |
-|-------------|-----------|
-| `{{LANG}}` | `en` o `es` |
-| `{{PAGE_WIDTH}}` | `8.5in` (letter) o `210mm` (A4) |
-| `{{NAME}}` | (from profile.yml) |
-| `{{PHONE}}` | (from profile.yml — include with its separator only when `profile.yml` has a non-empty `phone` value; omit both `<span>` and `<span class="separator">` otherwise) |
-| `{{EMAIL}}` | (from profile.yml) |
-| `{{LINKEDIN_URL}}` | [from profile.yml] |
-| `{{LINKEDIN_DISPLAY}}` | [from profile.yml] |
-| `{{PORTFOLIO_URL}}` | [from profile.yml] (o /es según idioma) |
-| `{{PORTFOLIO_DISPLAY}}` | [from profile.yml] (o /es según idioma) |
-| `{{LOCATION}}` | [from profile.yml] |
-| `{{SECTION_SUMMARY}}` | Professional Summary / Resumen Profesional |
-| `{{SUMMARY_TEXT}}` | Summary personalizado con keywords |
-| `{{SECTION_COMPETENCIES}}` | Core Competencies / Competencias Core |
-| `{{COMPETENCIES}}` | `<span class="competency-tag">keyword</span>` × 6-8 |
-| `{{SECTION_EXPERIENCE}}` | Work Experience / Experiencia Laboral |
-| `{{EXPERIENCE}}` | HTML de cada trabajo con bullets reordenados |
-| `{{SECTION_PROJECTS}}` | Projects / Proyectos |
-| `{{PROJECTS}}` | HTML de top 3-4 proyectos |
-| `{{SECTION_EDUCATION}}` | Education / Formación |
-| `{{EDUCATION}}` | HTML de educación |
-| `{{SECTION_CERTIFICATIONS}}` | Certifications / Certificaciones |
-| `{{CERTIFICATIONS}}` | HTML de certificaciones |
-| `{{SECTION_SKILLS}}` | Skills / Competencias |
-| `{{SKILLS}}` | HTML de skills |
+### Projects
+- Select 2–3 most relevant from the 3 projects in cv.md
+- May reorder bullets within a project
+- **Never invent project outcomes or KPIs**
 
-## Canva CV Generation (optional)
+### Technical Skills
+- Keep all skill categories and items from cv.md
+- May reorder categories to put most-JD-relevant first
+- **Never add skills not in cv.md**
 
-If `config/profile.yml` has `canva_resume_design_id` set, offer the user a choice before generating:
-- **"HTML/PDF (fast, ATS-optimized)"** — existing flow above
-- **"Canva CV (visual, design-preserving)"** — new flow below
+## Placeholder reference — cv-template-de.html
 
-If the user has no `canva_resume_design_id`, skip this prompt and use the HTML/PDF flow.
+| Placeholder | Content |
+|---|---|
+| `{{LANG}}` | `en` or `de` |
+| `{{PAGE_WIDTH}}` | `210mm` |
+| `{{NAME}}` | Vilol Joshi |
+| `{{LOCATION}}` | Berlin, Germany · Open to relocation |
+| `{{PHONE_DE}}` | +37125670263 (EU number — always use for DE/EMEA CVs) |
+| `{{EMAIL}}` | viloljoshi10@gmail.com |
+| `{{PORTFOLIO_URL}}` | https://www.linkedin.com/in/viloljoshi (until portfolio URL is set) |
+| `{{LINKEDIN_URL}}` | https://www.linkedin.com/in/viloljoshi |
+| `{{PHOTO_HTML}}` | `<img>` tag or placeholder div (see Photo section) |
+| `{{EXPERIENCE}}` | `.job` divs — company, role, dates, bullets (see HTML structure below) |
+| `{{PROJECTS}}` | `.project` divs — title + bullets |
+| `{{EDUCATION}}` | `.edu-item` divs |
+| `{{CORE_COMPETENCIES}}` | `.competency` divs — bold title + paragraph |
+| `{{LANGUAGES_DE}}` | `.lang-item` divs for English, Spanish, German |
+| `{{CERTIFICATIONS_LIST}}` | `<li>` items |
+| `{{SKILLS}}` | `.skill-category` + `.skill-list` divs |
 
-### Canva workflow
+## Placeholder reference — cv-template-dx.html
 
-#### Step 1 — Duplicate the base design
+| Placeholder | Content |
+|---|---|
+| `{{LANG}}` | `en` |
+| `{{PAGE_WIDTH}}` | `210mm` |
+| `{{NAME}}` | Vilol Joshi |
+| `{{HEADLINE}}` | Technical AI Product Manager · {role domain from JD} |
+| `{{LOCATION}}` | Berlin, Germany (Open to Relocation) |
+| `{{PHONE_DX}}` | +917410152053 (Indian number — use for MEA/SEA CVs) |
+| `{{EMAIL}}` | viloljoshi10@gmail.com |
+| `{{PORTFOLIO_URL}}` | https://www.linkedin.com/in/viloljoshi |
+| `{{LINKEDIN_URL}}` | https://www.linkedin.com/in/viloljoshi |
+| `{{PHOTO_HTML}}` | `<img>` tag or placeholder div |
+| `{{SUMMARY_TEXT}}` | Tailored 3–4 sentence summary with JD keywords (see rules above) |
+| `{{EXPERIENCE}}` | `.job` divs — company, role, dates, `.job-bullets` (see below) |
+| `{{PROJECTS}}` | `.project` divs — title + `.project-bullets` |
+| `{{EDUCATION}}` | `.edu-item` divs |
+| `{{KEY_STRENGTHS}}` | `.strength` divs — bold title + short paragraph |
+| `{{LANGUAGES_DX}}` | `.lang-item` divs |
+| `{{CERTIFICATIONS_LIST}}` | `<li>` items |
+| `{{SKILLS}}` | `.skill-category` + `.skill-list` divs |
 
-a. `export-design` the base design (using `canva_resume_design_id`) as PDF → get download URL
-b. `import-design-from-url` using that download URL → creates a new editable design (the duplicate)
-c. Note the new `design_id` for the duplicate
+## HTML structure for experience (both templates)
 
-#### Step 2 — Read the design structure
+### cv-template-de.html jobs
+```html
+<div class="job">
+  <div class="job-header">
+    <span class="job-company">Company Name</span>
+    <span class="job-location-inline">, Location</span>
+  </div>
+  <div class="job-role-row">
+    <span class="job-role">Role Title</span>
+    <span class="job-dates">Mon YYYY – Mon YYYY</span>
+  </div>
+  <ul>
+    <li>Bullet one (most JD-relevant first)</li>
+    <li>Bullet two</li>
+  </ul>
+</div>
+```
 
-a. `get-design-content` on the new design → returns all text elements (richtexts) with their content
-b. Map text elements to CV sections by content matching:
-   - Look for the candidate's name → header section
-   - Look for "Summary" or "Professional Summary" → summary section
-   - Look for company names from cv.md → experience sections
-   - Look for degree/school names → education section
-   - Look for skill keywords → skills section
-c. If mapping fails, show the user what was found and ask for guidance
+### cv-template-dx.html jobs (arrow bullets)
+```html
+<div class="job">
+  <div class="job-header-row">
+    <div>
+      <span class="job-company">Company Name</span>
+      <span class="job-location-inline"> — Location</span>
+    </div>
+    <span class="job-dates">Mon YYYY – Mon YYYY</span>
+  </div>
+  <div class="job-role">Role Title</div>
+  <ul class="job-bullets">
+    <li>Bullet one (most JD-relevant first)</li>
+    <li>Bullet two</li>
+  </ul>
+</div>
+```
 
-#### Step 3 — Generate tailored content
+## HTML structure for core competencies (cv-template-de.html)
+```html
+<div class="competency">
+  <div class="competency-title">Category Title</div>
+  <div class="competency-text">Description paragraph with real metrics.</div>
+</div>
+```
 
-Same content generation as the HTML flow (Steps 1-11 above):
-- Rewrite Professional Summary with JD keywords + exit narrative
-- Reorder experience bullets by JD relevance
-- Select top competencies from JD requirements
-- Inject keywords naturally (NEVER invent)
+## HTML structure for key strengths (cv-template-dx.html)
+```html
+<div class="strength">
+  <div class="strength-title">Category Title</div>
+  <div class="strength-text">Short description with real metric.</div>
+</div>
+```
 
-**IMPORTANT — Character budget rule:** Each replacement text MUST be approximately the same length as the original text it replaces (within ±15% character count). If tailored content is longer, condense it. The Canva design has fixed-size text boxes — longer text causes overlapping with adjacent elements. Count the characters in each original element from Step 2 and enforce this budget when generating replacements.
+## HTML structure for education (both templates)
+```html
+<div class="edu-item">
+  <div class="edu-school">Riga Technical University</div>
+  <div class="edu-degree-row">
+    <span class="edu-degree">M.Sc. in Business Informatics Sciences</span>
+    <span class="edu-meta">Riga, Latvia</span>
+  </div>
+</div>
+```
 
-#### Step 4 — Apply edits
+## HTML structure for skills (both templates)
+```html
+<div class="skill-category">Gen-AI &amp; Agentic Systems</div>
+<div class="skill-list">LLM Application Design, Agentic Workflows, ...</div>
+<div class="skill-category">AI Evaluation &amp; Reliability</div>
+<div class="skill-list">Golden Dataset Evaluation, ...</div>
+```
 
-a. `start-editing-transaction` on the duplicate design
-b. `perform-editing-operations` with `find_and_replace_text` for each section:
-   - Replace summary text with tailored summary
-   - Replace each experience bullet with reordered/rewritten bullets
-   - Replace competency/skills text with JD-matched terms
-   - Replace project descriptions with top relevant projects
-c. **Reflow layout after text replacement:**
-   After applying all text replacements, the text boxes auto-resize but neighboring elements stay in place. This causes uneven spacing between work experience sections. Fix this:
-   1. Read the updated element positions and dimensions from the `perform-editing-operations` response
-   2. For each work experience section (top to bottom), calculate where the bullets text box ends: `end_y = top + height`
-   3. The next section's header should start at `end_y + consistent_gap` (use the original gap from the template, typically ~30px)
-   4. Use `position_element` to move the next section's date, company name, role title, and bullets elements to maintain even spacing
-   5. Repeat for all work experience sections
-d. **Verify layout before commit:**
-   - `get-design-thumbnail` with the transaction_id and page_index=1
-   - Visually inspect the thumbnail for: text overlapping, uneven spacing, text cut off, text too small
-   - If issues remain, adjust with `position_element`, `resize_element`, or `format_text`
-   - Repeat until layout is clean
-d. Show the user the final preview and ask for approval
-e. `commit-editing-transaction` to save (ONLY after user approval)
+## Final check before generating PDF
 
-#### Step 5 — Export and download PDF
-
-a. `export-design` the duplicate as PDF (format: a4 or letter based on JD location)
-b. **IMMEDIATELY** download the PDF using Bash:
-   ```bash
-   curl -sL -o "output/cv-{candidate}-{company}-canva-{YYYY-MM-DD}.pdf" "{download_url}"
-   ```
-   The export URL is a pre-signed S3 link that expires in ~2 hours. Download it right away.
-c. Verify the download:
-   ```bash
-   file output/cv-{candidate}-{company}-canva-{YYYY-MM-DD}.pdf
-   ```
-   Must show "PDF document". If it shows XML or HTML, the URL expired — re-export and retry.
-d. Report: PDF path, file size, Canva design URL (for manual tweaking)
-
-#### Error handling
-
-- If `import-design-from-url` fails → fall back to HTML/PDF pipeline with message
-- If text elements can't be mapped → warn user, show what was found, ask for manual mapping
-- If `find_and_replace_text` finds no matches → try broader substring matching
-- Always provide the Canva design URL so the user can edit manually if auto-edit fails
-
-## Post-generación
-
-Actualizar tracker si la oferta ya está registrada: cambiar PDF de ❌ a ✅.
+Before executing `node generate-pdf.mjs`, verify:
+- [ ] Every metric matches the values in cv.md exactly
+- [ ] No experience, project, or skill was added that doesn't exist in cv.md
+- [ ] All bullet points are present (none accidentally omitted)
+- [ ] Correct phone number used (EU +37125670263 for DE/EMEA, IN +917410152053 for MEA/SEA)
+- [ ] Correct template used for the region
+- [ ] Dates are unchanged from cv.md

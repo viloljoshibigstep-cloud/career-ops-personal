@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerOps — Job Review Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-brand">
+    <div class="header-logo">CO</div>
+    <div>
+      <div class="header-title">CareerOps</div>
+      <div class="header-subtitle">Vilol Joshi — AI PM Job Dashboard</div>
+    </div>
+  </div>
+  <div class="header-stats" id="header-stats">
+    <div class="stat-chip"><span class="num" id="stat-above7">—</span><span class="label">Score ≥7</span></div>
+    <div class="stat-chip"><span class="num" id="stat-total">—</span><span class="label">Evaluated</span></div>
+    <div class="stat-chip"><span class="num" id="stat-pipeline">—</span><span class="label">In Pipeline</span></div>
+    <div class="stat-chip"><span class="num" id="stat-applied">—</span><span class="label">Applied</span></div>
+  </div>
+  <button class="btn-scan" id="btn-scan" onclick="runScan()">⚡ Run Scan</button>
+  <button class="btn-refresh" onclick="refreshAll()">↻ Refresh</button>
+</header>
+
+<!-- ── LAYOUT ─────────────────────────────────────────────── -->
+<div class="layout">
+
+  <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-toolbar">
+      <div class="sidebar-toolbar-top">
+        <span class="sidebar-view-label" id="sidebar-count">Jobs</span>
+        <div class="view-tabs">
+          <button class="view-tab active" id="tab-reviewed" onclick="switchView('reviewed')">Scored</button>
+          <button class="view-tab" id="tab-pipeline" onclick="switchView('pipeline')">Pipeline</button>
+        </div>
+      </div>
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="search-input" placeholder="Search company or role…" oninput="filterJobs()">
+      </div>
+      <div class="filter-row">
+        <select class="filter-select" id="region-filter" onchange="filterJobs()">
+          <option value="">All Regions</option>
+          <option value="EMEA-DE">Germany</option>
+          <option value="EMEA-UK">UK</option>
+          <option value="EMEA-NL">Netherlands</option>
+          <option value="EMEA-FR">France</option>
+          <option value="MEA-AE">Dubai / UAE</option>
+          <option value="MEA-QA">Qatar</option>
+          <option value="SEA-SG">Singapore</option>
+          <option value="SEA-MY">Malaysia</option>
+        </select>
+        <select class="filter-select" id="score-filter" onchange="filterJobs()">
+          <option value="0">All Scores</option>
+          <option value="7" selected>Score ≥ 7</option>
+          <option value="8">Score ≥ 8</option>
+          <option value="9">Score ≥ 9</option>
+        </select>
+      </div>
+    </div>
+    <div class="job-list" id="job-list"></div>
+  </aside>
+
+  <!-- ── MAIN REVIEW PANEL ───────────────────────────────── -->
+  <main class="main-panel" id="main-panel">
+    <div class="main-panel-empty" id="empty-state">
+      <div class="big-icon">📋</div>
+      <p>Select a job to review CV and cover letter</p>
+    </div>
+
+    <!-- Review area — shown when a job is selected -->
+    <div id="review-area" style="display:none; flex-direction:column; height:100%;">
+
+      <div class="review-header">
+        <div class="review-job-title">
+          <div>
+            <div class="review-company" id="review-company">—</div>
+            <div class="review-role" id="review-role">—</div>
+          </div>
+          <div class="review-badges" id="review-badges"></div>
+        </div>
+        <div class="review-tabs">
+          <button class="review-tab active" onclick="switchTab('cv')">📄 CV Preview</button>
+          <button class="review-tab" onclick="switchTab('cover')">✉ Cover Letter</button>
+          <button class="review-tab" onclick="switchTab('report')">📊 Evaluation</button>
+        </div>
+      </div>
+
+      <div class="review-actions">
+        <button class="btn btn-primary" id="btn-dl-cv" onclick="downloadCV()" disabled>
+          ⬇ Download CV
+        </button>
+        <button class="btn btn-secondary" id="btn-dl-cover" onclick="downloadCover()" disabled>
+          ⬇ Download Cover Letter
+        </button>
+        <a id="btn-apply-link" href="#" target="_blank" style="display:none;">
+          <button class="btn btn-ghost">↗ Open Job Posting</button>
+        </a>
+      </div>
+
+      <div class="review-content">
+
+        <!-- CV Tab -->
+        <div class="tab-pane active" id="pane-cv">
+          <div class="pdf-container" id="pdf-container">
+            <div class="pdf-placeholder">
+              <div class="icon">📄</div>
+              <p>No CV generated yet for this job.<br>Run <code>/career-ops pdf</code> in Claude Code to generate.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cover Letter Tab -->
+        <div class="tab-pane" id="pane-cover">
+          <div class="cover-container">
+            <div class="cover-text" id="cover-text">
+              No cover letter generated yet for this job.<br><br>
+              Run the cover letter generation in Claude Code to create one.
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation Report Tab -->
+        <div class="tab-pane" id="pane-report">
+          <div class="report-container">
+            <div class="report-md" id="report-md">
+              No evaluation report found.<br><br>
+              Run <code>/career-ops eval</code> in Claude Code to generate a full evaluation.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
