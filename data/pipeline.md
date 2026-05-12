@@ -141,6 +141,11 @@ Move to ## Procesadas after evaluation. Move to ## Descartadas if not relevant.
 - [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4007711005 | Glean | Product Manager
 - [ ] https://jobs.lever.co/pigment/150fdf8f-a235-4404-b9b4-289f15096b1a | Pigment | Product Marketing Manager
 
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7464291 | Intercom | Staff AI Product Manager
+- [ ] https://job-boards.greenhouse.io/contentful/jobs/7636216 | Contentful | Senior Product Manager (f/m/d)
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4651950005 | Glean | Forward Deployed Product Manager
+- [ ] https://jobs.lever.co/pigment/dfef7ea9-a325-4262-b9ca-bc925d1534ec | Pigment | Product Marketing Manager
+
 ## Pendientes
 
 ## Procesadas
