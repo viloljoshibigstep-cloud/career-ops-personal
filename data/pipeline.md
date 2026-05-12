@@ -6,6 +6,122 @@ Format: - [ ] URL | Company | Role Title | Region | Scan Date
 Move to ## Procesadas after evaluation. Move to ## Descartadas if not relevant.
 -->
 
+- [ ] https://n26.com/en-eu/careers/positions/7861428?gh_jid=7861428 | N26 | Product Manager - Data Governance & Analytics Engineering
+- [ ] https://n26.com/en-eu/careers/positions/7861809?gh_jid=7861809 | N26 | Product Manager - Lending
+- [ ] https://n26.com/en-eu/careers/positions/7704226?gh_jid=7704226 | N26 | (Senior) Product Manager - Onboarding & KYC
+- [ ] https://n26.com/en-eu/careers/positions/7140058?gh_jid=7140058 | N26 | Senior Product Manager - Payments Platform (Backend)
+- [ ] https://n26.com/en-eu/careers/positions/7649873?gh_jid=7649873 | N26 | Senior Product Manager - Runtime Platform
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7722853003?gh_jid=7722853003 | Celonis | Client Account Lead - AI-Driven Transformation & Process Intelligence
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7718201003?gh_jid=7718201003 | Celonis | Client Account Lead - Strategy Transformation
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7696087003?gh_jid=7696087003 | Celonis | Client Engagement Partner - AI-Driven Transformation & Process Intelligence
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7714520003?gh_jid=7714520003 | Celonis | Client Value Partner - AI-Driven Transformation & Process Intelligence
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7669258003?gh_jid=7669258003 | Celonis | Client Value Partner (CVP) - AI-Driven Transformation & Process Intelligence
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7544126003?gh_jid=7544126003 | Celonis | Manager, Value Engineering - Public Sector Transformation
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7586202003?gh_jid=7586202003 | Celonis | Senior Business Transformation & Process Optimisation Consultant 
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7594944003?gh_jid=7594944003 | Celonis | Senior Consultant - Data Analytics and Supply Chain Transformation
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7638119003?gh_jid=7638119003 | Celonis | Senior Product Manager - Celonis Labs
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7687708003?gh_jid=7687708003 | Celonis | Senior Product Manager - Extractors (Data Integration)
+- [ ] https://traderepublic.com/en-de/about?jobId=6067355003&gh_jid=6067355003 | Trade Republic | Product Operations Associate/Manager
+- [ ] https://traderepublic.com/en-de/about?jobId=5614731003&gh_jid=5614731003 | Trade Republic | Senior Technical Product Manager
+- [ ] https://traderepublic.com/en-de/about?jobId=6551435003&gh_jid=6551435003 | Trade Republic | Senior Technical Product Manager - Banking infra
+- [ ] https://jobs.ashbyhq.com/n8n/8b2ece44-e693-4e55-b21e-34848f1aad0a | n8n | Product Marketing Manager (Enterprise) 
+- [ ] https://job-boards.greenhouse.io/contentful/jobs/7658079 | Contentful | Senior Product Manager (f/m/d)
+- [ ] https://job-boards.greenhouse.io/contentful/jobs/7776379 | Contentful | Senior Product Operations Manager (f/m/d)
+- [ ] https://careers.hellofresh.com/global/en/job/7597827?gh_jid=7597827 | HelloFresh | Lead Product Operations (all genders)
+- [ ] https://careers.hellofresh.com/global/en/job/7795996?gh_jid=7795996 | HelloFresh | Product Analyst (all genders) 
+- [ ] https://careers.hellofresh.com/global/en/job/7721611?gh_jid=7721611 | HelloFresh | Product Analyst (All Genders)
+- [ ] https://careers.hellofresh.com/global/en/job/7912372?gh_jid=7912372 | HelloFresh | Product Operations Assistant   
+- [ ] https://careers.hellofresh.com/global/en/job/7900855?gh_jid=7900855 | HelloFresh | Product Operations Specialist (12 months contract)
+- [ ] https://careers.hellofresh.com/global/en/job/7653269?gh_jid=7653269 | HelloFresh | Senior Product Analyst
+- [ ] https://careers.hellofresh.com/global/en/job/7824418?gh_jid=7824418 | HelloFresh | Senior Product Manager II, Personalisation & Data
+- [ ] https://careers.hellofresh.com/global/en/job/7906733?gh_jid=7906733 | HelloFresh | Senior Product Marketing Manager (all genders) 
+- [ ] https://careers.hellofresh.com/global/en/job/7784812?gh_jid=7784812 | HelloFresh | Senior Product Operations Specialist (12 Months Contract)
+- [ ] https://careers.hellofresh.com/global/en/job/7539972?gh_jid=7539972 | HelloFresh | Staff Product Analyst, Growth 
+- [ ] https://careers.hellofresh.com/global/en/job/7594595?gh_jid=7594595 | HelloFresh | Staff Product Manager, Growth 
+- [ ] https://getyourguide.careers/jobs/7657103?gh_jid=7657103 | GetYourGuide | Lead Product Manager, Paid Search
+- [ ] https://getyourguide.careers/jobs/7668008?gh_jid=7668008 | GetYourGuide | Senior Go-to-Market Manager, New Categories
+- [ ] https://getyourguide.careers/jobs/7887400?gh_jid=7887400 | GetYourGuide | Senior Product Manager, B2B 
+- [ ] https://getyourguide.careers/jobs/7556882?gh_jid=7556882 | GetYourGuide | Senior Product Manager, Connectivity 
+- [ ] https://sumup.com/careers/positions/8498278002?gh_jid=8498278002 | SumUp | Product Manager, Partnerships
+- [ ] https://sumup.com/careers/positions/8458928002?gh_jid=8458928002 | SumUp | Senior Product Manager - Bookings
+- [ ] https://sumup.com/careers/positions/8418443002?gh_jid=8418443002 | SumUp | Senior Technical Product Manager - Commercial Data
+- [ ] https://job-boards.eu.greenhouse.io/parloa/jobs/4784741101 | Parloa | GSI Partnerships Manager -  (Conversational AI & Agentic AI)
+- [ ] https://job-boards.eu.greenhouse.io/parloa/jobs/4828560101 | Parloa | Principal Product Marketing Manager
+- [ ] https://helsing.ai/jobs/4790417101?gh_jid=4790417101 | Helsing | Product Manager - Development, Testing & Validation Platform
+- [ ] https://helsing.ai/jobs/4468911101?gh_jid=4468911101 | Helsing | (Senior) Product Marketing Manager
+- [ ] https://job-boards.eu.greenhouse.io/polyai/jobs/4713506101 | PolyAI | Group Product Manager
+- [ ] https://wayve.firststage.co/jobs?gh_jid=8542420002 | Wayve | Product Manager - AI Driver
+- [ ] https://wayve.firststage.co/jobs?gh_jid=8325451002 | Wayve | Technical Product Manager - Robotaxi
+- [ ] https://jobs.ashbyhq.com/synthesia/fd3617a1-b117-417d-bee5-416ea9193150 | Synthesia | Product Manager, Video Creation & Editing (Principal-level)
+- [ ] https://jobs.ashbyhq.com/synthesia/c9784e0b-1ca1-4b17-815e-c232837ce2fd | Synthesia | Product Marketing Manager, Release Marketing
+- [ ] https://jobs.ashbyhq.com/synthesia/7fc7f0ac-7a05-4dba-9036-ffdb99b6a704 | Synthesia | Product Manager, Analytics (Senior/Lead-level)
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7814380 | Intercom | Principal Engineer - Go-To-Market
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7232569 | Intercom | Principal Product Marketing Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/5663703 | Intercom | Product Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7511855 | Intercom | Senior Product Manager, Web 
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/6758904 | Intercom | Senior Product Manager, Web (Narrative/Content) 
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7834585 | Intercom | Senior Product Marketing Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7846251 | Intercom | Senior Product Marketing Manager 
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7377200 | Intercom | Staff AI Product Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7371973 | Intercom | Staff Product Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/5663720 | Intercom | Staff Product Manager 
+- [ ] https://jobs.ashbyhq.com/photoroom/651fd35a-eb3f-499d-b9ef-41772b9a73ab | Photoroom | Senior Product Analyst
+- [ ] https://jobs.ashbyhq.com/lovable/e8897c7e-53bd-43f8-94bb-02237f4459bb | Lovable | Product Manager (Build Experience)
+- [ ] https://jobs.ashbyhq.com/lovable/1140665c-a426-49d5-bcdd-f78560efe50d | Lovable | Product Manager (Agents) 
+- [ ] https://jobs.ashbyhq.com/lovable/282cea94-a525-43a6-a18e-8b92900d03f8 | Lovable | Product Manager (Security)
+- [ ] https://jobs.ashbyhq.com/lovable/601f50aa-db7f-4727-8427-80b9038c52ca | Lovable | Product Manager (Enterprise)
+- [ ] https://job-boards.greenhouse.io/anthropic/jobs/5191437008 | Anthropic | Partner Business Systems & AI Operations Lead
+- [ ] https://job-boards.greenhouse.io/anthropic/jobs/5181852008 | Anthropic | Product Manager, API Growth
+- [ ] https://job-boards.greenhouse.io/anthropic/jobs/4985920008 | Anthropic | Product Manager, Claude Code
+- [ ] https://job-boards.greenhouse.io/anthropic/jobs/5153773008 | Anthropic | Product Manager, Monetization
+- [ ] https://job-boards.greenhouse.io/anthropic/jobs/5198991008 | Anthropic | Product Marketing Lead, Claude Platform - Cloud
+- [ ] https://jobs.ashbyhq.com/cohere/a8122632-cc3b-4a1a-bd78-4b4b9466cb38 | Cohere | Product Manager, Safety Research
+- [ ] https://jobs.ashbyhq.com/cohere/d9d2740b-8869-462d-85df-21c1941bc13d | Cohere | Product Manager,  Native Experience & Growth
+- [ ] https://jobs.ashbyhq.com/cohere/fe2e2971-e2c0-43fd-9ab1-187571776a5d | Cohere | Product Manager,  Platform Experience & Developer Product
+- [ ] https://jobs.ashbyhq.com/cohere/2a7f1fad-05ff-4260-af36-556d1d694775 | Cohere | Product Manager, Public Sector & Defence
+- [ ] https://jobs.ashbyhq.com/cohere/1d1b300d-254b-48c4-958f-99c6b907f295 | Cohere | Product Manager, Agent Harness & Modelling
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4659407005 | Glean | Forward Deployed Product Manager
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4629292005 | Glean | Product Manager
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4525297005 | Glean | Product Manager, Agent Security & Governance
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4525518005 | Glean | Product Manager, AI Quality
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4597178005 | Glean | Product Manager, Connectors
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4641940005 | Glean | Product Manager, Glean Protect (Security & Governance)
+- [ ] https://jobs.ashbyhq.com/perplexity/5ec96ca1-319a-4b85-99ce-e06629099cf9 | Perplexity | Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/perplexity/9e3a4516-b893-4579-9a6a-3720658e4b6d | Perplexity | Solutions Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/perplexity/f25e190e-0508-4707-b575-fcaed358dc13 | Perplexity | Product Manager (Builder)
+- [ ] https://jobs.lever.co/qonto/16aae667-4e3a-4c03-acf0-f70c9e6a695c | Qonto | Product Marketing Manager - Remuneration
+- [ ] https://jobs.lever.co/qonto/4aff341d-3732-418f-b6fa-84e36c1e7979 | Qonto | Senior Product Manager - Accounting Domain - French speaking 🇫🇷
+- [ ] https://jobs.lever.co/qonto/feadc191-e77b-49db-af62-6440e7a42d12 | Qonto | Senior Product Manager - Connect
+- [ ] https://jobs.lever.co/qonto/ccebc25a-cc07-458e-bf9b-d36c33de441c | Qonto | Senior Product Manager - KYC/KYB
+- [ ] https://jobs.lever.co/qonto/4da0db79-ae25-4983-bae1-4fb99acb4c26 | Qonto | Senior Product Marketing Manager - German Market
+- [ ] https://jobs.lever.co/pigment/02224c31-9528-460b-b491-8cce972dfe57 | Pigment | Product Marketing Manager
+- [ ] https://jobs.lever.co/pigment/39662985-9160-45be-8363-352c69edeeef | Pigment | Senior GenAI Engineer
+- [ ] https://jobs.lever.co/mistral/6201f9a0-233f-4de3-a8cc-65b75e99370f | Mistral AI | Product Manager, AI Studio
+- [ ] https://jobs.lever.co/mistral/ca22a1ac-c87e-4463-914a-6753ca79318c | Mistral AI | Product Manager, Cloud Partnerships
+- [ ] https://jobs.lever.co/mistral/c08c3a0f-9899-4e6c-8195-8b1cc24c56ff | Mistral AI | Product Manager, Context & Search
+- [ ] https://jobs.lever.co/mistral/7809b483-bdae-4964-97c7-5b8d232a142f | Mistral AI | Product Manager, Document Intelligence
+- [ ] https://jobs.lever.co/mistral/11087966-f183-44b1-adc9-3a400c1f52ad | Mistral AI | Product Manager, Forge
+- [ ] https://jobs.lever.co/mistral/650e0e53-dc35-4e61-9b46-6f7ef003d0be | Mistral AI | Product Manager, Mistral Vibe
+- [ ] https://jobs.lever.co/mistral/c5e134c7-0513-40cb-99f7-e1e87f9a3349 | Mistral AI | Product Marketing Manager, Solutions
+- [ ] https://jobs.lever.co/mistral/8f3566b9-8165-46e1-899f-f37f8fe35ab5 | Mistral AI | Senior Product Marketing Manager - Studio
+- [ ] https://jobs.lever.co/mistral/281f4a57-dbe2-40b5-a35f-e180e15a4f12 | Mistral AI | Senior Product Marketing Manager, B2B
+- [ ] https://jobs.lever.co/nium/12b995bd-8bfe-4cb5-8d1b-83b33906fe85 | Nium | Senior Product Manager - Card Processing
+- [ ] https://jobs.lever.co/nium/78af3df0-9ee6-43f4-85d4-e4eabfa2d576 | Nium | Sr. Product Manager
+- [ ] https://jobs.lever.co/nium/c1bdb6eb-2ee5-410d-aa96-985401fa57b9 | Nium | Staff Product Manager
+- [ ] https://jobs.lever.co/nium/64a5b08f-20b6-4a56-957a-c02a28d6aa0c | Nium | Staff Product Manager - LATAM
+- [ ] http://stability.ai/careers?gh_jid=4712826101 | Stability AI | Generative AI Inference Engineer
+- [ ] http://stability.ai/careers?gh_jid=4770256101 | Stability AI | Multimodal Generative AI Researcher
+- [ ] https://jobs.lever.co/spotify/24bbec30-05b4-4493-931b-18731c72d0a3 | Spotify | Associate Manager, Product Marketing - Podcast Business
+- [ ] https://jobs.lever.co/spotify/4a68b983-4fc9-4933-be54-a919ddfaecd5 | Spotify | Creative Business Strategies (CBS) Manager - Argentina
+- [ ] https://jobs.lever.co/spotify/a5a8a486-eb9d-4645-923e-13cb41c16129 | Spotify | Creative Business Strategies (CBS) Manager - Colombia
+- [ ] https://jobs.lever.co/spotify/b6e58287-4355-4f1d-9b56-3add5509b8e8 | Spotify | Principal Product Manager - ML / Subscriptions Growth
+- [ ] https://jobs.lever.co/spotify/f38133ce-c2d7-4473-ab69-6bdcb1703297 | Spotify | Principal Product Manager, Experience
+- [ ] https://jobs.lever.co/spotify/ba28dba6-91d0-49ce-881d-dbe2c2ae85e5 | Spotify | Product Manager - Platform Tooling
+- [ ] https://jobs.lever.co/spotify/df021346-1c23-4184-b27f-b65c47d75564 | Spotify | Senior Conversational AI Lead
+- [ ] https://jobs.lever.co/spotify/d30af7c7-67aa-404a-a1a5-b8b3838e08c3 | Spotify | Senior Product Manager - Subscriptions
+- [ ] https://jobs.lever.co/spotify/aced8bea-4eef-435b-b32f-734ca776d31e | Spotify | Senior Product Manager - Subscriptions Mission
+- [ ] https://jobs.lever.co/spotify/3e76b5e6-c86c-42eb-8be7-05d9246dd901 | Spotify | Senior Product Manager, Core Experience (Playback)
+
 ## Pendientes
 
 ## Procesadas
