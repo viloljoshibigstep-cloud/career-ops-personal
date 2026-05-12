@@ -4,7 +4,7 @@ data/pipeline.md
 data/scan-history.tsv
 reports/*.md
 !reports/.gitkeep
-output/*
+output/*.html
 !output/.gitkeep
 batch/logs/*
 !batch/logs/.gitkeep

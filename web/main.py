@@ -8,7 +8,7 @@ import subprocess
 
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
-PUBLIC_DIR = Path(__file__).parent / "public"
+PUBLIC_DIR = Path(__file__).parent.parent / "docs"
 
 app = FastAPI(title="CareerOps API", version="1.0.0")
 
