@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * generate-data.mjs
- * Converts data/applications.md + data/pipeline.md → docs/data/jobs.json + docs/data/pipeline.json
+ * Converts data/applications.md + data/pipeline.md → data/jobs.json + data/pipeline.json
+ * Also copies PDFs/covers to output/ (served by GitHub Pages from root).
  * Run after every scan or CV generation, then push to GitHub.
  */
 
@@ -11,11 +12,7 @@ import { fileURLToPath } from 'url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const DATA  = join(ROOT, 'data');
-const DOCS  = join(ROOT, 'docs');
-const OUT   = join(DOCS, 'data');
-
-mkdirSync(OUT, { recursive: true });
-mkdirSync(join(DOCS, 'output'), { recursive: true });
+const OUT   = DATA; // JSON files live alongside the markdown files
 
 // ── Parse applications.md ─────────────────────────────────────────────────────
 function parseApplications() {
@@ -67,35 +64,13 @@ function parsePipeline() {
   return pending;
 }
 
-// ── Copy PDFs + covers to docs/output ────────────────────────────────────────
-function copyArtifacts(jobs) {
-  let copied = 0;
-  for (const job of jobs) {
-    for (const field of ['cv', 'cover', 'report']) {
-      const rel = job[field];
-      if (!rel) continue;
-      const src = join(ROOT, rel);
-      if (!existsSync(src)) continue;
-      // Only copy files that live under output/ or reports/
-      if (!rel.startsWith('output/') && !rel.startsWith('reports/')) continue;
-      const dest = join(DOCS, rel);
-      mkdirSync(dirname(dest), { recursive: true });
-      copyFileSync(src, dest);
-      copied++;
-    }
-  }
-  return copied;
-}
-
 // ── Main ──────────────────────────────────────────────────────────────────────
 const jobs     = parseApplications();
 const pipeline = parsePipeline();
-const copied   = copyArtifacts(jobs);
 
 writeFileSync(join(OUT, 'jobs.json'),     JSON.stringify(jobs,     null, 2), 'utf8');
 writeFileSync(join(OUT, 'pipeline.json'), JSON.stringify(pipeline, null, 2), 'utf8');
 
-console.log(`✓ docs/data/jobs.json      — ${jobs.length} jobs`);
-console.log(`✓ docs/data/pipeline.json  — ${pipeline.length} pending`);
-console.log(`✓ Artifacts copied         — ${copied} files`);
+console.log(`✓ data/jobs.json      — ${jobs.length} jobs`);
+console.log(`✓ data/pipeline.json  — ${pipeline.length} pending`);
 console.log(`\nPush to GitHub → Pages updates automatically.`);

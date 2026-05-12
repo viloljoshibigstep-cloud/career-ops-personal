@@ -2,6 +2,9 @@
 data/applications.md
 data/pipeline.md
 data/scan-history.tsv
+# Generated static data (tracked for GitHub Pages)
+!data/jobs.json
+!data/pipeline.json
 reports/*.md
 !reports/.gitkeep
 output/*.html
