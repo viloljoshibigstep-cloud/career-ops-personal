@@ -6,9 +6,9 @@ Format: - [ ] URL | Company | Role Title | Region | Scan Date
 Move to ## Procesadas after evaluation. Move to ## Descartadas if not relevant.
 -->
 
-- [ ] https://n26.com/en-eu/careers/positions/7861428?gh_jid=7861428 | N26 | Product Manager - Data Governance & Analytics Engineering
-- [ ] https://n26.com/en-eu/careers/positions/7861809?gh_jid=7861809 | N26 | Product Manager - Lending
-- [ ] https://n26.com/en-eu/careers/positions/7704226?gh_jid=7704226 | N26 | (Senior) Product Manager - Onboarding & KYC
+- [x] https://n26.com/en-eu/careers/positions/7861428?gh_jid=7861428 | N26 | Product Manager - Data Governance & Analytics Engineering
+- [x] https://n26.com/en-eu/careers/positions/7861809?gh_jid=7861809 | N26 | Product Manager - Lending
+- [x] https://n26.com/en-eu/careers/positions/7704226?gh_jid=7704226 | N26 | (Senior) Product Manager - Onboarding & KYC
 - [ ] https://n26.com/en-eu/careers/positions/7140058?gh_jid=7140058 | N26 | Senior Product Manager - Payments Platform (Backend)
 - [ ] https://n26.com/en-eu/careers/positions/7649873?gh_jid=7649873 | N26 | Senior Product Manager - Runtime Platform
 - [ ] https://job-boards.greenhouse.io/celonis/jobs/7722853003?gh_jid=7722853003 | Celonis | Client Account Lead - AI-Driven Transformation & Process Intelligence

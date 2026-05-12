@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": 3,
+    "date": "2026-05-12",
+    "company": "N26",
+    "role": "(Senior) Product Manager - Onboarding & KYC",
+    "score": 9,
+    "region": "EMEA-DE",
+    "status": "evaluated",
+    "cv": "output/cv-n26-2026-05-12.pdf",
+    "cover": "output/cover-n26-2026-05-12.txt",
+    "report": "reports/003-n26-2026-05-12.md",
+    "notes": ""
+  },
+  {
+    "id": 1,
+    "date": "2026-05-12",
+    "company": "N26",
+    "role": "Product Manager - Data Governance & Analytics Engineering",
+    "score": 7,
+    "region": "EMEA-DE",
+    "status": "evaluated",
+    "cv": "output/cv-n26-2026-05-12.pdf",
+    "cover": "output/cover-n26-2026-05-12.txt",
+    "report": "reports/001-n26-2026-05-12.md",
+    "notes": ""
+  },
+  {
+    "id": 2,
+    "date": "2026-05-12",
+    "company": "N26",
+    "role": "Product Manager - Lending",
+    "score": 7,
+    "region": "EMEA-DE",
+    "status": "evaluated",
+    "cv": "output/cv-n26-2026-05-12.pdf",
+    "cover": "output/cover-n26-2026-05-12.txt",
+    "report": "reports/002-n26-2026-05-12.md",
+    "notes": ""
+  }
+]

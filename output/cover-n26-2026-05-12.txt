@@ -1,0 +1,10 @@
+Dear N26 Hiring Team,
+
+I am excited to apply for the (Senior) Product Manager – Onboarding & KYC role at N26. With over five years of experience building and modernizing KYC/AML-focused fintech products — including replacing rule-based compliance modules with LLM-powered pipelines and managing end-to-end onboarding workflows for enterprise clients — I am confident I can contribute meaningfully to N26's mission of delivering a seamless, compliant digital banking experience at scale.
+
+In my most recent role at Solytics Partners, I led the modernization of the Nimbus fintech platform, building agentic validation layers for document extraction, fine-tuning models for KYC and regulatory filing workflows, and standardizing third-party AML/KYC API integrations that reduced turnaround time by 25%. Prior to that, at Schbang, I owned AI-driven document workflows handling 50,000+ KYC/AML documents monthly, achieving a 70% reduction in manual operations, while also delivering an 18% conversion uplift on digital banking journeys for apps serving 5M+ users. These experiences have given me deep familiarity with the regulatory, technical, and user experience dimensions of onboarding and identity verification in banking.
+
+I am particularly drawn to N26's commitment to building best-in-class digital banking infrastructure and believe my combination of technical product management, AI orchestration expertise, and proven delivery in compliance-heavy environments makes me a strong fit for your team. I would welcome the opportunity to discuss how I can help N26 scale its onboarding and KYC capabilities further.
+
+Warm regards,
+Vilol Joshi

@@ -27,8 +27,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Playwright browser (for PDF generation)
+        run: npx playwright install chromium --with-deps
+
       - name: Run job scan
         run: node scan.mjs
+
+      - name: Evaluate jobs via Anthropic API
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node batch/api-evaluate.mjs
 
       - name: Generate static dashboard data
         run: node generate-data.mjs
@@ -44,6 +52,7 @@ jobs:
             data/pipeline.json \
             data/applications.md \
             output/ \
+            reports/ \
             || true
           git diff --staged --quiet && echo "Nothing to commit" && exit 0
           git commit -m "chore: scan $(date -u +%Y-%m-%d) — auto [skip ci]"
