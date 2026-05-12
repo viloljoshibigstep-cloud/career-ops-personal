@@ -123,6 +123,24 @@ Move to ## Procesadas after evaluation. Move to ## Descartadas if not relevant.
 - [ ] https://job-boards.greenhouse.io/contentful/jobs/7658079 | Contentful | Senior Product Manager (f/m/d)
 - [ ] https://job-boards.greenhouse.io/contentful/jobs/7776379 | Contentful | Senior Product Operations Manager (f/m/d)
 
+- [ ] https://n26.com/en-eu/careers/positions/7868515?gh_jid=7868515 | N26 | Product Manager - Data Governance & Analytics Engineering
+- [ ] https://n26.com/en-eu/careers/positions/7868456?gh_jid=7868456 | N26 | Product Manager - Lending
+- [ ] https://n26.com/en-eu/careers/positions/7668142?gh_jid=7668142 | N26 | (Senior) Product Manager - Onboarding & KYC
+- [ ] https://n26.com/en-eu/careers/positions/7140089?gh_jid=7140089 | N26 | Senior Product Manager - Payments Platform (Backend)
+- [ ] https://n26.com/en-eu/careers/positions/7653388?gh_jid=7653388 | N26 | Senior Product Manager - Runtime Platform
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7683568003?gh_jid=7683568003 | Celonis | Client Engagement Partner - AI-Driven Transformation & Process Intelligence
+- [ ] https://job-boards.greenhouse.io/celonis/jobs/7712529003?gh_jid=7712529003 | Celonis | Manager, Value Engineering - Public Sector Transformation
+- [ ] https://careers.hellofresh.com/global/en/job/7721611?gh_jid=7721611 | HelloFresh | Product Analyst (All Genders)
+- [ ] https://job-boards.greenhouse.io/contentful/jobs/7635752 | Contentful | Senior Product Manager (f/m/d)
+- [ ] https://job-boards.greenhouse.io/contentful/jobs/7752248 | Contentful | Senior Product Operations Manager (f/m/d)
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7811880 | Intercom | Principal Engineer - Go-To-Market
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7511861 | Intercom | Senior Product Manager, Web 
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7464294 | Intercom | Staff AI Product Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/5379326 | Intercom | Staff Product Manager
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4659409005 | Glean | Forward Deployed Product Manager
+- [ ] https://job-boards.greenhouse.io/gleanwork/jobs/4007711005 | Glean | Product Manager
+- [ ] https://jobs.lever.co/pigment/150fdf8f-a235-4404-b9b4-289f15096b1a | Pigment | Product Marketing Manager
+
 ## Pendientes
 
 ## Procesadas
