@@ -17,6 +17,7 @@ const api = {
 let allJobs = [];
 let pipelineJobs = [];
 let selectedJob = null;
+let selectedPipelineIdx = null;
 let currentView = 'reviewed';
 let currentTab  = 'cv';
 
@@ -110,8 +111,9 @@ function switchView(view) {
   document.getElementById('tab-reviewed').classList.toggle('active', view === 'reviewed');
   document.getElementById('tab-pipeline').classList.toggle('active', view === 'pipeline');
   document.getElementById('score-filter').style.display = view === 'reviewed' ? '' : 'none';
+  clearReview();
   if (view === 'reviewed') renderJobs();
-  else { renderPipeline(); clearReview(); }
+  else renderPipeline();
 }
 
 function filterJobs() {
@@ -175,17 +177,72 @@ function renderPipeline() {
     return;
   }
 
-  list.innerHTML = pipelineJobs.map(job => `
-    <div class="pipeline-card">
+  list.innerHTML = pipelineJobs.map((job, idx) => `
+    <div class="pipeline-card ${selectedPipelineIdx === idx ? 'selected' : ''}" onclick="selectPipelineJob(${idx})">
       <div class="pipeline-company">${esc(job.company || 'Unknown')}</div>
       <div class="pipeline-role">${esc(job.role || 'Role unknown')}</div>
       <div class="pipeline-meta">
         ${job.region ? `<span class="meta-tag region">${esc(job.region)}</span>` : ''}
         ${job.date   ? `<span class="meta-tag">${esc(job.date)}</span>` : ''}
       </div>
-      ${job.url ? `<a class="pipeline-url" href="${esc(job.url)}" target="_blank">↗ ${esc(job.url)}</a>` : ''}
+      ${job.url ? `<a class="pipeline-url" href="${esc(job.url)}" target="_blank" onclick="event.stopPropagation()">↗ ${esc(job.url)}</a>` : ''}
     </div>
   `).join('');
+}
+
+// ── Pipeline job selection ─────────────────────────────────────────────────────
+function selectPipelineJob(idx) {
+  selectedPipelineIdx = idx;
+  selectedJob = null;
+  const job = pipelineJobs[idx];
+  if (!job) return;
+
+  renderPipeline();
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('review-area').style.display = 'flex';
+  document.getElementById('review-company').textContent = job.company || 'Unknown Company';
+  document.getElementById('review-role').textContent    = job.role || 'Unknown Role';
+  document.getElementById('review-badges').innerHTML = [
+    `<span class="meta-tag status-pending">pipeline</span>`,
+    job.region ? `<span class="meta-tag region">${esc(job.region)}</span>` : '',
+    job.date   ? `<span class="meta-tag">${esc(job.date)}</span>`           : '',
+  ].join('');
+
+  const applyBtn = document.getElementById('btn-apply-link');
+  if (job.url) {
+    applyBtn.href = job.url;
+    applyBtn.style.display = '';
+  } else {
+    applyBtn.style.display = 'none';
+  }
+
+  document.getElementById('btn-dl-cv').disabled    = true;
+  document.getElementById('btn-dl-cover').disabled = true;
+
+  document.getElementById('pdf-container').innerHTML = `
+    <div class="pdf-placeholder">
+      <div class="icon">📄</div>
+      <p>No CV yet — this job hasn't been evaluated.<br>
+      Score it with Claude Code, then <code>/pdf</code> to generate.</p>
+    </div>`;
+
+  document.getElementById('cover-text').textContent = 'No cover letter yet — evaluate this job first, then run /cover in Claude Code.';
+
+  document.getElementById('report-md').innerHTML = `
+    <h2 style="margin-bottom:12px">${esc(job.company || 'Unknown')} — ${esc(job.role || 'Unknown')}</h2>
+    ${job.region ? `<p style="margin-bottom:6px"><strong>Region:</strong> ${esc(job.region)}</p>` : ''}
+    ${job.date   ? `<p style="margin-bottom:6px"><strong>Found:</strong> ${esc(job.date)}</p>`    : ''}
+    ${job.url    ? `<p style="margin-bottom:16px"><strong>Posting:</strong> <a href="${esc(job.url)}" target="_blank" style="color:var(--accent)">${esc(job.url)}</a></p>` : ''}
+    <hr style="border-color:var(--border);margin-bottom:16px">
+    <p style="color:var(--text-muted);margin-bottom:8px">To generate a tailored CV &amp; cover letter:</p>
+    <ol style="padding-left:20px;line-height:1.9;color:var(--text-dim)">
+      <li>Open Claude Code in the <code>career-ops</code> folder</li>
+      <li>Run <code>/oferta</code> to score this job (needs score ≥ 7)</li>
+      <li>Run <code>/pdf</code> to generate the tailored CV</li>
+      <li>Push to GitHub — dashboard updates automatically</li>
+    </ol>`;
+
+  switchTab('report');
 }
 
 // ── Job selection & review panel ──────────────────────────────────────────────
@@ -254,6 +311,7 @@ async function loadReviewContent() {
 
 function clearReview() {
   selectedJob = null;
+  selectedPipelineIdx = null;
   document.getElementById('empty-state').style.display = 'flex';
   document.getElementById('review-area').style.display = 'none';
 }

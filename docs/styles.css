@@ -290,8 +290,10 @@ body {
   margin-bottom: 6px;
   background: var(--surface);
   transition: all 0.15s;
+  cursor: pointer;
 }
 .pipeline-card:hover { border-color: rgba(245,158,11,0.4); }
+.pipeline-card.selected { border-color: var(--accent); background: var(--surface2); }
 .pipeline-company { font-weight: 600; font-size: 12.5px; }
 .pipeline-role { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
 .pipeline-meta { display: flex; gap: 6px; margin-top: 6px; }
