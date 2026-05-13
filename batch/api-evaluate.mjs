@@ -63,9 +63,26 @@ if (!API_KEY) {
 
 const client = new Anthropic({ apiKey: API_KEY });
 
+// ── Already-evaluated dedup ───────────────────────────────────────────────────
+
+function loadEvaluatedKeys() {
+  const f = join(DATA, 'applications.md');
+  const seen = new Set();
+  if (!existsSync(f)) return seen;
+  for (const line of readFileSync(f, 'utf-8').split('\n')) {
+    if (!line.startsWith('|')) continue;
+    const cols = line.split('|').map(s => s.trim()).filter(Boolean);
+    if (cols.length < 4 || cols[0] === '#') continue;
+    const company = cols[2].toLowerCase();
+    const role    = cols[3].toLowerCase();
+    if (company && role) seen.add(`${company}::${role}`);
+  }
+  return seen;
+}
+
 // ── Parse pipeline.md ─────────────────────────────────────────────────────────
 
-function parsePending() {
+function parsePending(alreadyEvaluated) {
   const f = join(DATA, 'pipeline.md');
   if (!existsSync(f)) return [];
   const pending = [];
@@ -76,6 +93,8 @@ function parsePending() {
     const m = line.match(/^- \[ \] (.+)/);
     if (!m) continue;
     const parts = m[1].split('|').map(s => s.trim());
+    const key = `${(parts[1] || '').toLowerCase()}::${(parts[2] || '').toLowerCase()}`;
+    if (alreadyEvaluated.has(key)) continue; // skip — already in applications.md
     pending.push({
       url:     parts[0] || '',
       company: parts[1] || '',
@@ -493,9 +512,14 @@ async function main() {
   console.log(`║  Threshold: ${SCORE_THRESHOLD}+  DryRun: ${DRY_RUN}     ║`);
   console.log('╚══════════════════════════════════════╝\n');
 
-  const profile  = loadProfile();
-  const cvContent = loadCV();
-  let pending    = parsePending().slice(0, MAX_JOBS);
+  const profile          = loadProfile();
+  const cvContent        = loadCV();
+  const alreadyEvaluated = loadEvaluatedKeys();
+  let pending            = parsePending(alreadyEvaluated).slice(0, MAX_JOBS);
+
+  if (alreadyEvaluated.size > 0) {
+    console.log(`⏭  Skipping ${alreadyEvaluated.size} already-evaluated jobs (found in applications.md)\n`);
+  }
 
   if (pending.length === 0) {
     console.log('✓ Pipeline is empty — nothing to evaluate.');
