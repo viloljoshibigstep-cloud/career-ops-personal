@@ -38,9 +38,10 @@ const args     = process.argv.slice(2);
 const DRY_RUN  = args.includes('--dry-run');
 const MAX_IDX  = args.indexOf('--max');
 const MAX_JOBS = MAX_IDX !== -1 ? parseInt(args[MAX_IDX + 1]) : Infinity;
-const BATCH_SIZE = 5;
-const MODEL      = 'claude-sonnet-4-6';
+const MODEL           = 'claude-sonnet-4-6';
 const SCORE_THRESHOLD = 7.0;
+const DELAY_MS        = 10_000;  // 10s between jobs → ~6 jobs/min, safely under 30K TPM
+const MAX_RETRIES     = 3;
 
 // ── Load env ─────────────────────────────────────────────────────────────────
 
@@ -192,6 +193,8 @@ function nextTrackerNum() {
 const SYSTEM_PROMPT = `You are a professional career advisor evaluating job-fit for a specific candidate.
 Respond ONLY with a single valid JSON object. No markdown, no code fences, no explanation outside the JSON.`;
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
 async function evaluateJob(job, jdText, cvContent, profile) {
   const candidate = profile.candidate || {};
   const name      = candidate.full_name || 'the candidate';
@@ -233,24 +236,35 @@ Scoring guide (1-10):
 - 3-4: Weak match — significant skill gaps
 - 1-2: Poor fit — very different domain or requirements`;
 
-  const response = await client.messages.create({
-    model: MODEL,
-    max_tokens: 2000,
-    system: SYSTEM_PROMPT,
-    messages: [{ role: 'user', content: userMsg }],
-  });
-
-  const raw = response.content[0]?.text || '{}';
-  try {
-    return JSON.parse(raw.trim());
-  } catch {
-    // Try to extract JSON from the response if it has extra text
-    const jsonMatch = raw.match(/\{[\s\S]+\}/);
-    if (jsonMatch) {
-      try { return JSON.parse(jsonMatch[0]); } catch {}
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const response = await client.messages.create({
+        model: MODEL,
+        max_tokens: 2000,
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: userMsg }],
+      });
+      const raw = response.content[0]?.text || '{}';
+      try {
+        return JSON.parse(raw.trim());
+      } catch {
+        const jsonMatch = raw.match(/\{[\s\S]+\}/);
+        if (jsonMatch) {
+          try { return JSON.parse(jsonMatch[0]); } catch {}
+        }
+        console.warn(`  ⚠ JSON parse failed for ${job.company}, using defaults`);
+        return { score: 0, rationale: 'Parse error', region: job.region, template: 'cv-template-dx.html', paper_format: 'a4' };
+      }
+    } catch (err) {
+      const is429 = err.status === 429 || (err.message || '').includes('rate_limit');
+      if (is429 && attempt < MAX_RETRIES) {
+        const wait = 60_000 * attempt; // 60s, 120s
+        console.warn(`  ⏳ Rate limited — waiting ${wait / 1000}s before retry ${attempt}/${MAX_RETRIES}...`);
+        await sleep(wait);
+      } else {
+        throw err;
+      }
     }
-    console.warn(`  ⚠ JSON parse failed for ${job.company}, using defaults`);
-    return { score: 0, rationale: 'Parse error', region: job.region, template: 'cv-template-dx.html', paper_format: 'a4' };
   }
 }
 
@@ -492,24 +506,23 @@ async function main() {
   const today   = new Date().toISOString().slice(0, 10);
   const results = [];
   let trackerNum = nextTrackerNum();
+  const eta = Math.ceil(pending.length * DELAY_MS / 60_000);
+  console.log(`⏱  Sequential mode — 1 job every ${DELAY_MS / 1000}s → ~${eta} min total\n`);
 
-  // Process in batches
-  for (let i = 0; i < pending.length; i += BATCH_SIZE) {
-    const batch = pending.slice(i, i + BATCH_SIZE);
-    console.log(`\n── Batch ${Math.floor(i / BATCH_SIZE) + 1} (jobs ${i + 1}–${Math.min(i + BATCH_SIZE, pending.length)}) ─────────`);
+  for (let i = 0; i < pending.length; i++) {
+    const job = pending[i];
+    process.stdout.write(`[${i + 1}/${pending.length}] ${job.company} — ${job.role}...`);
 
-    const batchResults = await Promise.all(batch.map(async job => {
-      process.stdout.write(`  Fetching JD: ${job.company} — ${job.role}...`);
-      const jdText     = await fetchJD(job);
-      process.stdout.write(' ✓  Evaluating...');
-      const evaluation = await evaluateJob(job, jdText, cvContent, profile);
-      const score      = evaluation.score ?? 0;
-      const marker     = score >= SCORE_THRESHOLD ? '🟢' : score >= 5 ? '🟡' : '🔴';
-      console.log(` ${marker} ${score.toFixed(1)}`);
-      return { job, jdText, evaluation };
-    }));
+    const jdText     = await fetchJD(job);
+    process.stdout.write(' fetched → evaluating...');
+    const evaluation = await evaluateJob(job, jdText, cvContent, profile);
+    const score      = evaluation.score ?? 0;
+    const marker     = score >= SCORE_THRESHOLD ? '🟢' : score >= 5 ? '🟡' : '🔴';
+    console.log(` ${marker} ${score.toFixed(1)}`);
+    results.push({ job, jdText, evaluation });
 
-    results.push(...batchResults);
+    // Rate limit buffer — skip delay after last job
+    if (i < pending.length - 1 && !DRY_RUN) await sleep(DELAY_MS);
   }
 
   // Summary + decide which to process further
