@@ -30,16 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Playwright browser (for PDF generation)
-        run: npx playwright install chromium --with-deps
-
       - name: Run job scan
         run: node scan.mjs
-
-      - name: Evaluate jobs via Anthropic API
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node batch/api-evaluate.mjs
 
       - name: Generate static dashboard data
         run: node generate-data.mjs
