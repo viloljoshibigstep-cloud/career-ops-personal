@@ -1,0 +1,10 @@
+Dear SumUp Hiring Team,
+
+I am excited to apply for the Senior Technical Product Manager – Commercial Data role at SumUp. With over five years of experience delivering data-driven AI and fintech products, including building analytics platforms, orchestrating structured data pipelines, and leading cross-functional teams to drive measurable commercial outcomes, I believe I can make an immediate and meaningful impact on your Commercial Data team.
+
+In my current role at Solytics Partners, I led the modernization of the Nimbus fintech platform, introducing LLM-powered data extraction pipelines, structured validation layers, and third-party API integrations that reduced turnaround time by 25% and directly supported a €15M enterprise sales pipeline. At Ogilvy, I partnered with Engineering and UX to design scalable analytics dashboards that reduced manual reporting effort by 35%, while at Schbang I rebuilt AI-driven document workflows processing 50K+ records monthly. Across these roles, I have consistently translated complex data challenges into clear product strategies that serve both commercial and operational stakeholders.
+
+SumUp's mission to empower small merchants through accessible financial technology resonates deeply with me, and I am particularly drawn to the opportunity to shape how commercial data products inform growth and decision-making at scale. I am open to relocation and eager to contribute to SumUp's continued expansion across Europe. I would welcome the opportunity to discuss how my background aligns with your team's goals.
+
+Warm regards,
+Vilol Joshi

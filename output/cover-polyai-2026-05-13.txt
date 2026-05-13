@@ -1,0 +1,10 @@
+Dear PolyAI Hiring Team,
+
+I am excited to apply for the Group Product Manager role at PolyAI. With over five years of experience building and shipping LLM-powered agentic platforms across fintech, advertising, and enterprise AI, I have a deep appreciation for the complexity of delivering world-class conversational AI products at scale. From spearheading the modernization of a fintech compliance platform with agentic orchestration layers to leading an AI-native campaign that generated 54M+ unique AI-driven outputs, I have consistently translated frontier AI capabilities into measurable commercial outcomes—exactly the mandate PolyAI is looking for in this role.
+
+My experience directly maps to the three pillars you are hiring for. On Building Experience, I have defined tooling and pipelines for internal teams to configure, test, and deploy LLM agents in production environments. On Supervisor Experience, I have built validation layers, confidence scoring systems, and QA workflows that give human operators meaningful oversight of AI outputs. On Multichannel Experience, I have architected conversational AI flows across chat, voice, and document surfaces, with a consistent focus on reliability, scalability, and enterprise-grade compliance. I have also partnered with sales teams to support enterprise pipelines and led architecture demonstrations directly tied to revenue outcomes.
+
+I am motivated by PolyAI's mission to make AI voice and chat assistants feel genuinely human, and I believe my blend of technical depth, product delivery track record, and enterprise client focus positions me well to drive alignment across your product groups and accelerate the platform's commercial success. I would welcome the opportunity to discuss how my background can contribute to PolyAI's next chapter of growth.
+
+Warm regards,
+Vilol Joshi

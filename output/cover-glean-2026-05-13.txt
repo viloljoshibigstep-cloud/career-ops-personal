@@ -1,0 +1,10 @@
+Dear Glean Hiring Team,
+
+I am excited to apply for the Product Manager, AI Quality role at Glean. As a Technical AI Product Manager with 5+ years of experience building and shipping LLM-powered platforms at enterprise scale, I have spent my career doing exactly what this role demands: evaluating and deploying LLMs, designing agentic orchestration layers, managing third-party AI provider integrations, and driving measurable business outcomes for large enterprise customers. At Solytics Partners, I led the modernization of the Nimbus fintech platform by replacing static rule-based systems with in-house LLM capabilities, fine-tuning models for compliance workflows, and architecting validation pipelines that directly supported a €15M enterprise sales pipeline — experience that maps closely to owning Glean's LLM portfolio roadmap and customer enablement strategy.
+
+What draws me most to Glean is the depth of its Work AI ecosystem and the challenge of managing a Model Hub where LLM choice, cost, and capacity directly impact enterprise trust and productivity at scale. I have hands-on experience evaluating model performance, building confidence-scoring and structured output validation layers, and helping cross-functional teams — engineering, sales, and leadership — align around AI-native product strategy. At Schbang, I implemented BPMN-aligned orchestration pipelines and personalization engines serving 5M+ users, giving me a strong foundation for driving cross-functional prioritization and scalable AI infrastructure decisions. I understand both the UX and API dimensions of platform products and have consistently translated complex AI capabilities into customer-facing value.
+
+I am eager to bring this technical depth and enterprise product instinct to Glean's team. I am open to relocation and ready to engage with your customers to deeply understand their knowledge needs, define a compelling roadmap for the Model Hub, and help accelerate Glean's mission of making every employee AI-fluent. I would welcome the opportunity to discuss how my background aligns with your vision.
+
+Warm regards,
+Vilol Joshi

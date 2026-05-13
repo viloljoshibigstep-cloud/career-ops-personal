@@ -1,0 +1,10 @@
+Dear Perplexity Hiring Team,
+
+I am excited to apply for the Product Manager (Builder) role at Perplexity. As a Technical AI Product Manager with over five years of experience designing and shipping LLM-powered products—from agentic compliance platforms processing 50,000+ documents monthly to AI-native consumer campaigns generating 54 million unique creations—I thrive at the intersection of technical depth and user-centric product thinking. Perplexity's mission to redefine how people access and interact with knowledge resonates deeply with the work I have done building explainable AI layers, RAG-grounded interfaces, and conversational AI systems that make complex information accessible and trustworthy.
+
+At Solytics Partners, I led the end-to-end modernization of a fintech platform by replacing static rule-based modules with in-house LLM and agentic workflows, directly supporting a €15M enterprise sales pipeline. At Ogilvy, I drove a globally deployed AI-native product that achieved a 9% revenue uplift for a major brand. Across these roles, I have owned the full product lifecycle—from discovery and architecture discussions to iterative delivery and measurable outcomes—working closely with engineering, design, and business stakeholders. I bring the same builder mentality to every product challenge: prototype fast, validate rigorously, and ship with purpose.
+
+I am drawn to Perplexity because it sits at the frontier of what AI-powered products can become, and I want to contribute to shaping that future. My experience with LLM orchestration, structured output validation, RAG pipelines, and user-facing AI product design positions me to hit the ground running and deliver meaningful impact from day one. I would welcome the opportunity to discuss how my background aligns with your team's goals and the problems you are solving.
+
+Warm regards,
+Vilol Joshi

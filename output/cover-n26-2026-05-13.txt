@@ -1,0 +1,10 @@
+Dear N26 Hiring Team,
+
+I am excited to apply for the Senior Product Manager – Payments Platform (Backend) role at N26. As a Technical AI Product Manager with over five years of experience building and modernising fintech platforms across digital banking, AML/KYC compliance, and enterprise payments infrastructure, I am drawn to N26's mission of delivering a world-class banking experience through technology-first thinking. My background managing backend API integrations, orchestration pipelines, and scalable document workflows in regulated financial environments positions me well to contribute meaningfully to your Payments Platform team.
+
+At Solytics Partners, I led the modernisation of the Nimbus fintech platform, standardising third-party AML/KYC API integrations that reduced turnaround time by 25% and directly supported a €15M enterprise sales pipeline. At Schbang, I owned AI-driven document workflows processing 50,000+ KYC/AML documents monthly, achieving a 70% reduction in manual operations, and applied AI-driven personalisation to digital banking journeys serving 5M+ users. These experiences have given me a strong command of backend product thinking — defining APIs, coordinating with engineering on system architecture, and balancing compliance constraints with speed of delivery.
+
+I am eager to bring this combination of fintech domain expertise, backend platform ownership, and data-driven decision-making to N26's Payments Platform. I would welcome the opportunity to discuss how my experience can support N26's continued growth across European markets and beyond.
+
+Warm regards,
+Vilol Joshi
