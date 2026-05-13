@@ -5,6 +5,9 @@ on:
     - cron: '0 3 * * *'   # 9 AM IST (UTC+5:30) = 03:30 UTC — runs daily
   push:
     branches: [main]
+    paths:
+      - 'data/pipeline.md'      # only trigger when scan adds new jobs
+      - 'config/portals.yml'    # or when portals config changes
   workflow_dispatch:       # manual trigger from GitHub UI
 
 permissions:
@@ -45,6 +48,12 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
+
+          # Rebase BEFORE staging so generated files (PDFs, covers) survive
+          # conflict-free — they're untracked at this point, rebase won't touch them
+          git fetch origin main
+          git rebase origin/main
+
           git add -f \
             data/pipeline.md \
             data/scan-history.tsv \
@@ -56,5 +65,4 @@ jobs:
             || true
           git diff --staged --quiet && echo "Nothing to commit" && exit 0
           git commit -m "chore: scan $(date -u +%Y-%m-%d) — auto [skip ci]"
-          git pull --rebase origin main
           git push
